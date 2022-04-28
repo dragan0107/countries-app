@@ -12,7 +12,7 @@ const RegionSelect = () => {
       <div className="region-select__menu">
         <span className="region-select__menu__title">Filter by Region</span>
         <i
-          class={
+          className={
             'fa-solid' +
             (showRegionList ? ' fa-chevron-up' : ' fa-chevron-down')
           }

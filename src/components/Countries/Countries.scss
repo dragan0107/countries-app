@@ -1,0 +1,11 @@
+@import '../../assets/sass/main.scss';
+
+.countries-wrapper {
+  height: calc(100vh - 5.97em);
+  background: $very-dark-blue;
+  @include flex-justify-center;
+}
+.countries {
+  padding: 3em 4em;
+  width: $desktop;
+}

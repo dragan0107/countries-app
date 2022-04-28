@@ -8,4 +8,8 @@
 .countries {
   padding: 3em 4em;
   width: $desktop;
+  &__filters {
+    @include flex-align-center;
+    justify-content: space-between;
+  }
 }

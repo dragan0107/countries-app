@@ -1,0 +1,48 @@
+@import '../../assets/sass/main.scss';
+
+.region-select {
+  cursor: pointer;
+  position: relative;
+  @include nunita;
+  padding: 1em 1.2em 1em 1.7em;
+
+  &__menu {
+    @include flex-align-center;
+    justify-content: space-between;
+
+    i {
+      font-size: 0.6em;
+    }
+  }
+}
+
+.region-select__menu__list,
+.region-select {
+  background: $dark-blue;
+  width: 14em;
+  border-radius: 5px;
+  color: $very-light-gray;
+}
+.region-select__menu__title,
+.region-select__menu__list__item {
+  font-size: 0.85em;
+  margin-top: 0.2em;
+  width: 100%;
+}
+
+.region-select__menu__list__item {
+  padding: 0.5em;
+  margin: 0.1em;
+  span {
+    margin-left: 1.5em;
+  }
+  &:hover {
+    background: $very-dark-blue;
+  }
+}
+.region-select__menu__list {
+  position: absolute;
+  top: 113%;
+  left: 0%;
+  list-style: none;
+}

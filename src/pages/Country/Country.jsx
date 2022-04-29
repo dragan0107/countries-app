@@ -1,52 +1,80 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Country.scss';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Header from '../../components/Header/Header';
+import axios from 'axios';
 
 const Country = () => {
   const countryCode = useParams().countryName;
+  const [countryData, setCountryData] = useState([]);
+
+  useEffect(() => {
+    const getInfo = async () => {
+      try {
+        const res = await axios.get(
+          `https://restcountries.com/v2/alpha/${countryCode}`
+        );
+        setCountryData(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getInfo();
+  }, [countryCode]);
   return (
     <div className="country-page">
       <Header />
       <div className="country-info-wrapper">
         <div className="country-info">
-          <div className="country-info__btn">
-            <i class="fa-solid fa-arrow-left-long"></i> <span>Back</span>
-          </div>
+          <Link to="/">
+            <div className="country-info__btn">
+              <i class="fa-solid fa-arrow-left-long"></i> <span>Back</span>
+            </div>
+          </Link>
           <div className="country-info__about">
             <div className="country-info__about__flag">
-              <img src="https://flagcdn.com/rs.svg" alt="" />
+              <img src={countryData.flag} alt="" />
             </div>
             <div className="country-info__about__desc">
               <div className="country-desc-wrapper">
-                <h3>Serbia</h3>
+                <h3>{countryData.name}</h3>
                 <div className="country-details">
                   <ul>
                     <li>
-                      Native Name: <span>Serbia</span>
+                      Native Name: <span>{countryData.nativeName}</span>
                     </li>
                     <li>
-                      Population: <span>123123</span>
+                      Population:{' '}
+                      <span>
+                        {parseInt(countryData.population).toLocaleString()}
+                      </span>
                     </li>
                     <li>
-                      Region: <span>Europe</span>
+                      Region: <span>{countryData.region}</span>
                     </li>
                     <li>
-                      Sub Region: <span>Eastern Europe</span>{' '}
+                      Sub Region: <span>{countryData.subregion}</span>{' '}
                     </li>
                     <li>
-                      Capital: <span>Belgrade</span>{' '}
+                      Capital: <span>{countryData.capital}</span>{' '}
                     </li>
                   </ul>
                   <ul>
                     <li>
-                      Top Level Domain: <span>.rs</span>
+                      Top Level Domain:{' '}
+                      <span>{countryData.topLevelDomain}</span>
                     </li>
                     <li>
-                      Currencies: <span>Dinar</span>
+                      Currencies:{' '}
+                      {countryData.currencies?.map((el) => (
+                        <span>{el.name}</span>
+                      ))}
                     </li>
                     <li>
-                      Languages: <span>Serbian</span>
+                      Languages:{' '}
+                      {countryData.languages?.map((el) => (
+                        <span>{el.name}, </span>
+                      ))}
                     </li>
                   </ul>
                 </div>

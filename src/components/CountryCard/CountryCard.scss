@@ -1,5 +1,9 @@
 @import '../../assets/sass/main.scss';
 
+a {
+  text-decoration: none;
+}
+
 .country-card {
   @include flex-center-all($direction: column);
   justify-content: space-between;

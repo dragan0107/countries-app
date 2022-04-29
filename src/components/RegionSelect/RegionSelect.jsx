@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import './RegionSelect.scss';
 
-const RegionSelect = () => {
+const RegionSelect = ({ setRegion }) => {
   const [showRegionList, setShowRegionList] = useState(false);
+
+  const handleChange = (val) => {
+    setRegion(val);
+  };
 
   return (
     <div
@@ -20,19 +24,40 @@ const RegionSelect = () => {
       </div>
       {showRegionList && (
         <ul className="region-select__menu__list">
-          <li className="region-select__menu__list__item">
+          <li
+            className="region-select__menu__list__item"
+            onClick={() => handleChange('all')}
+          >
+            <span>All Regions</span>
+          </li>
+          <li
+            className="region-select__menu__list__item"
+            onClick={() => handleChange('africa')}
+          >
             <span>Africa</span>
           </li>
-          <li className="region-select__menu__list__item">
+          <li
+            className="region-select__menu__list__item"
+            onClick={() => handleChange('americas')}
+          >
             <span>Americas</span>
           </li>
-          <li className="region-select__menu__list__item">
+          <li
+            className="region-select__menu__list__item"
+            onClick={() => handleChange('asia')}
+          >
             <span>Asia</span>{' '}
           </li>
-          <li className="region-select__menu__list__item">
+          <li
+            className="region-select__menu__list__item"
+            onClick={() => handleChange('europe')}
+          >
             <span>Europe</span>{' '}
           </li>
-          <li className="region-select__menu__list__item">
+          <li
+            className="region-select__menu__list__item"
+            onClick={() => handleChange('oceania')}
+          >
             <span>Oceania</span>{' '}
           </li>
         </ul>

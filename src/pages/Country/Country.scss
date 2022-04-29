@@ -8,6 +8,50 @@
 .country-info {
   width: $desktop;
   padding: 6em 4em;
+  &__about {
+    @include flex-center-all;
+    margin-top: 4em;
+
+    &__flag,
+    &__desc {
+      flex: 6;
+    }
+    &__flag {
+      img {
+        width: 100%;
+      }
+    }
+
+    .country-desc-wrapper {
+      width: 80%;
+    }
+
+    &__desc {
+      display: flex;
+      justify-content: flex-end;
+      @include nunita;
+      color: $white;
+      h3 {
+        font-size: 2em;
+        margin-bottom: 1em;
+      }
+    }
+    .country-details {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5em;
+      ul {
+        list-style: none;
+        li {
+          margin: 0.5em 0;
+          font-weight: 600;
+          span {
+            font-weight: 300;
+          }
+        }
+      }
+    }
+  }
   &__btn {
     background: $dark-blue;
     padding: 0.7em 3em;

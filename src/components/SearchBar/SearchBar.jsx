@@ -8,9 +8,7 @@ const SearchBar = ({ setSearchedCountry }) => {
         type="text"
         placeholder="Search for a country..."
         autoFocus
-        onChange={(e) => {
-          setSearchedCountry(e.target.value);
-        }}
+        onChange={(e) => setSearchedCountry(e.target.value)}
       />
     </div>
   );

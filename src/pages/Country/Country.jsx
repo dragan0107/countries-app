@@ -18,39 +18,43 @@ const Country = () => {
               <img src="https://flagcdn.com/rs.svg" alt="" />
             </div>
             <div className="country-info__about__desc">
-              <h3>Serbia</h3>
-              <div className="country-details">
-                <ul>
-                  <li>
-                    Native Name: <span>Serbia</span>
-                  </li>
-                  <li>
-                    Population: <span>123123</span>
-                  </li>
-                  <li>
-                    Region: <span>Europe</span>
-                  </li>
-                  <li>
-                    Sub Region: <span>Eastern Europe</span>{' '}
-                  </li>
-                  <li>
-                    Capital: <span>Belgrade</span>{' '}
-                  </li>
-                </ul>
-                <ul>
-                  <li>Top Level Domain: </li>
-                  <li>
-                    Currencies: <span>Dinar</span>
-                  </li>
-                  <li>
-                    Languages: <span>Serbian</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="country-borders">
-                <span className="country-borders__title">
-                  Border Countries:
-                </span>
+              <div className="country-desc-wrapper">
+                <h3>Serbia</h3>
+                <div className="country-details">
+                  <ul>
+                    <li>
+                      Native Name: <span>Serbia</span>
+                    </li>
+                    <li>
+                      Population: <span>123123</span>
+                    </li>
+                    <li>
+                      Region: <span>Europe</span>
+                    </li>
+                    <li>
+                      Sub Region: <span>Eastern Europe</span>{' '}
+                    </li>
+                    <li>
+                      Capital: <span>Belgrade</span>{' '}
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      Top Level Domain: <span>.rs</span>
+                    </li>
+                    <li>
+                      Currencies: <span>Dinar</span>
+                    </li>
+                    <li>
+                      Languages: <span>Serbian</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="country-borders">
+                  <span className="country-borders__title">
+                    Border Countries:
+                  </span>
+                </div>
               </div>
             </div>
           </div>

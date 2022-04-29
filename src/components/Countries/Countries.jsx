@@ -15,6 +15,7 @@ const Countries = () => {
 
   useEffect(() => {
     getCountries(region);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [region, searchedCountry]);
 
   const getCountries = (reg) => {

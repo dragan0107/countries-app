@@ -16,7 +16,7 @@
   }
   &__card-container {
     @include flex-align-center;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 3.3em;
     padding: 3em 0;

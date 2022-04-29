@@ -1,0 +1,19 @@
+@import '../../assets/sass/main.scss';
+
+.country-info-wrapper {
+  background: $very-dark-blue;
+  @include flex-justify-center;
+  height: calc(100vh - 6em);
+}
+.country-info {
+  width: $desktop;
+  padding: 6em 4em;
+  &__btn {
+    background: $dark-blue;
+    padding: 0.7em 3em;
+    width: 10em;
+    border-radius: 5px;
+    color: $white;
+    @include nunita;
+  }
+}

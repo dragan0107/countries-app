@@ -14,13 +14,18 @@ const Countries = () => {
   const [notification, setNotification] = useState(false);
 
   useEffect(() => {
-    getCountries(
-      region,
-      setCountries,
-      setFetching,
-      searchedCountry,
-      setNotification
-    );
+    (async () => {
+      setFetching(true);
+      const res = await getCountries(region, searchedCountry);
+      setFetching(false);
+      if (res.data) {
+        setCountries(res.data);
+        setNotification(false);
+      } else {
+        setCountries([]);
+        setNotification(true);
+      }
+    })();
   }, [region, searchedCountry]);
 
   return (

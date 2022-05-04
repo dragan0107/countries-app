@@ -1,14 +1,7 @@
 import axios from 'axios';
 
-export const getCountries = async (
-  reg,
-  setCountries,
-  setFetching,
-  searchedCountry,
-  setNotification
-) => {
+export const getCountries = async (reg, searchedCountry) => {
   try {
-    setFetching(true);
     const res = await axios.get(
       searchedCountry
         ? `https://restcountries.com/v2/name/${searchedCountry}`
@@ -16,44 +9,19 @@ export const getCountries = async (
         ? `https://restcountries.com/v2/region/${reg}`
         : 'https://restcountries.com/v2/all?fields=name,capital,region,population,flags,alpha3Code'
     );
-    res.data.length === 0 ? setNotification(true) : setNotification(false);
-    setCountries(res.data);
-    setFetching(false);
+    return res;
   } catch (error) {
-    setFetching(false);
-    setNotification(true);
-    setCountries([]);
+    return error;
   }
 };
 
-export const getCountryInfo = async (
-  countryCode,
-  setCountryData,
-  setFetching
-) => {
+export const getCountryInfo = async (countryCode) => {
   try {
-    setFetching(true);
     const res = await axios.get(
       `https://restcountries.com/v2/alpha/${countryCode}`
     );
-    setCountryData(res.data);
-    setFetching(false);
+    return res.data;
   } catch (error) {
-    console.log(error);
-    setFetching(false);
-  }
-};
-
-export const getCouName = async (cou, setBorders) => {
-  try {
-    const res = await axios.get(
-      `https://restcountries.com/v2/alpha/${cou}?fields=name`
-    );
-    setBorders((prevValues) => [
-      ...prevValues.filter((val) => val !== res.data.name),
-      res.data.name,
-    ]);
-  } catch (error) {
-    console.log(error);
+    return error;
   }
 };

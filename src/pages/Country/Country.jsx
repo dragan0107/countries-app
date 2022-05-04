@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Country.scss';
 import { Link, useParams } from 'react-router-dom';
 import Header from '../../components/Header/Header';
-import { getCouName, getCountryInfo } from '../../api/APICalls';
+import { getCountryInfo, getCountryName } from '../../api/APICalls';
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 import BorderCountry from '../../components/BorderCountry/BorderCountry';
 
@@ -11,13 +11,25 @@ const Country = () => {
   const [countryData, setCountryData] = useState([]);
   const [fetching, setFetching] = useState(false);
   const [borders, setBorders] = useState([]);
+
   useEffect(() => {
-    getCountryInfo(countryCode, setCountryData, setFetching);
+    (async () => {
+      setFetching(true);
+      const res = await getCountryInfo(countryCode);
+      setCountryData(res);
+      setFetching(false);
+    })();
   }, [countryCode]);
 
   useEffect(() => {
     countryData.borders?.forEach((cou) => {
-      getCouName(cou, setBorders);
+      (async () => {
+        const res = await getCountryInfo(cou);
+        setBorders((prevValues) => [
+          ...prevValues.filter((val) => val !== res.name),
+          res.name,
+        ]);
+      })();
     });
   }, [countryData]);
 

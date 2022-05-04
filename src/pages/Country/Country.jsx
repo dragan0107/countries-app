@@ -2,25 +2,25 @@ import React, { useEffect, useState } from 'react';
 import './Country.scss';
 import { Link, useParams } from 'react-router-dom';
 import Header from '../../components/Header/Header';
-import axios from 'axios';
+import { getCouName, getCountryInfo } from '../../api/APICalls';
+import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
+import BorderCountry from '../../components/BorderCountry/BorderCountry';
 
 const Country = () => {
   const countryCode = useParams().countryName;
   const [countryData, setCountryData] = useState([]);
+  const [fetching, setFetching] = useState(false);
+  const [borders, setBorders] = useState([]);
+  useEffect(() => {
+    getCountryInfo(countryCode, setCountryData, setFetching);
+  }, [countryCode]);
 
   useEffect(() => {
-    const getInfo = async () => {
-      try {
-        const res = await axios.get(
-          `https://restcountries.com/v2/alpha/${countryCode}`
-        );
-        setCountryData(res.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getInfo();
-  }, [countryCode]);
+    countryData.borders?.forEach((cou) => {
+      getCouName(cou, setBorders);
+    });
+  }, [countryData]);
+
   return (
     <div className="country-page">
       <Header />
@@ -32,6 +32,9 @@ const Country = () => {
             </div>
           </Link>
           <div className="country-info__about">
+            <div className="countries-spinner">
+              {fetching && <LoadingSpinner />}
+            </div>
             <div className="country-info__about__flag">
               <img src={countryData.flag} alt="" />
             </div>
@@ -66,14 +69,14 @@ const Country = () => {
                     </li>
                     <li>
                       Currencies:{' '}
-                      {countryData.currencies?.map((el) => (
-                        <span>{el.name}</span>
+                      {countryData.currencies?.map((el, idx) => (
+                        <span key={idx}>{el.name}</span>
                       ))}
                     </li>
                     <li>
                       Languages:{' '}
-                      {countryData.languages?.map((el) => (
-                        <span>{el.name}, </span>
+                      {countryData.languages?.map((el, idx) => (
+                        <span key={idx}>{el.name}, </span>
                       ))}
                     </li>
                   </ul>
@@ -82,6 +85,10 @@ const Country = () => {
                   <span className="country-borders__title">
                     Border Countries:
                   </span>
+                  {borders &&
+                    borders.map((bor, idx) => (
+                      <BorderCountry key={idx} name={bor} />
+                    ))}
                 </div>
               </div>
             </div>

@@ -15,7 +15,7 @@ a {
   overflow: hidden;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  box-shadow: 1px 1px 15px 0px rgba(0, 0, 0, 0.49);
+  box-shadow: $shadow;
 
   &:hover {
     transform: scale(1.05);

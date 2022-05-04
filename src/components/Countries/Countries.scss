@@ -10,13 +10,13 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  &__filters {
+
+  &__filters,
+  &__card-container {
     @include flex-align-center;
     justify-content: space-between;
   }
   &__card-container {
-    @include flex-align-center;
-    justify-content: center;
     flex-wrap: wrap;
     gap: 3.3em;
     padding: 3em 0;

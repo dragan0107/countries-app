@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import './Country.scss';
 import { Link, useParams } from 'react-router-dom';
 import Header from '../../components/Header/Header';
-import { getCountryInfo, getCountryName } from '../../api/APICalls';
+import { getCountryInfo } from '../../api/APICalls';
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 import BorderCountry from '../../components/BorderCountry/BorderCountry';
 
 const Country = () => {
-  const countryCode = useParams().countryName;
+  const { countryCode } = useParams();
   const [countryData, setCountryData] = useState([]);
   const [fetching, setFetching] = useState(false);
   const [borders, setBorders] = useState([]);
@@ -22,13 +22,12 @@ const Country = () => {
   }, [countryCode]);
 
   useEffect(() => {
+    let countries = [];
     countryData.borders?.forEach((cou) => {
       (async () => {
         const res = await getCountryInfo(cou);
-        setBorders((prevValues) => [
-          ...prevValues.filter((val) => val !== res.name),
-          res.name,
-        ]);
+        countries.push(res.name);
+        setBorders([...countries]);
       })();
     });
   }, [countryData]);
@@ -40,7 +39,8 @@ const Country = () => {
         <div className="country-info">
           <Link to="/">
             <div className="country-info__btn">
-              <i class="fa-solid fa-arrow-left-long"></i> <span>Back</span>
+              <i class="fa-solid fa-arrow-left-long"></i>
+              <span>Back</span>
             </div>
           </Link>
           <div className="country-info__about">
@@ -93,15 +93,16 @@ const Country = () => {
                     </li>
                   </ul>
                 </div>
-                <div className="country-borders">
-                  <span className="country-borders__title">
-                    Border Countries:
-                  </span>
-                  {borders &&
-                    borders.map((bor, idx) => (
+                {countryData?.borders && (
+                  <div className="country-borders">
+                    <span className="country-borders__title">
+                      Border Countries:
+                    </span>
+                    {borders.map((bor, idx) => (
                       <BorderCountry key={idx} name={bor} />
                     ))}
-                </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>

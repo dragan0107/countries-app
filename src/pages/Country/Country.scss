@@ -54,6 +54,8 @@
     }
   }
   &__btn {
+    @include flex-center-all;
+    gap: 0.7em;
     background: $dark-blue;
     padding: 0.7em 3em;
     width: 10em;

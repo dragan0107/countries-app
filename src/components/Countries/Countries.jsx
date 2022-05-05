@@ -1,4 +1,6 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+
+import { debounce } from '../../utils/debounce';
 
 import CountryCard from '../CountryCard/CountryCard';
 import RegionSelect from '../RegionSelect/RegionSelect';
@@ -19,17 +21,7 @@ const Countries = () => {
     setSearchedCountry(e.target.value);
   };
 
-  const debounce = (fn, waitTime) => {
-    let timer;
-    return (...args) => {
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-        fn(...args);
-      }, waitTime);
-    };
-  };
-
-  const debouncedSearch = useCallback(debounce(handleSearchChange, 500), []);
+  const debouncedSearch = debounce(handleSearchChange, 500);
 
   useEffect(() => {
     (async () => {
@@ -50,10 +42,7 @@ const Countries = () => {
     <div className="countries-wrapper">
       <div className="countries">
         <div className="countries__filters">
-          <SearchBar
-            setSearchedCountry={setSearchedCountry}
-            debouncedSearch={debouncedSearch}
-          />
+          <SearchBar debouncedSearch={debouncedSearch} />
           <RegionSelect setRegion={setRegion} />
         </div>
         <div className="countries__card-container">

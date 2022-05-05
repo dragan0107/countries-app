@@ -14,11 +14,15 @@
   &__filters,
   &__card-container {
     @include flex-align-center;
+  }
+  &__filters {
     justify-content: space-between;
   }
   &__card-container {
+    justify-content: flex-start;
     flex-wrap: wrap;
-    gap: 3.3em;
+    width: 100%;
+    gap: 4.9em;
     padding: 3em 0;
     position: relative;
     &__notification {

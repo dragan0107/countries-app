@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import SingleRegion from '../SingleRegion/SingleRegion';
 import './RegionSelect.scss';
 
-const RegionSelect = ({ setRegion }) => {
+const RegionSelect = ({ setRegion, setSearchedCountry }) => {
   const [showRegionList, setShowRegionList] = useState(false);
   const [currentRegion, setCurrentRegion] = useState('All');
   const regions = ['all', 'africa', 'americas', 'asia', 'europe', 'oceania'];
@@ -11,6 +11,7 @@ const RegionSelect = ({ setRegion }) => {
   const handleChange = (val, valUppercase) => {
     setRegion(val);
     setCurrentRegion(valUppercase);
+    setSearchedCountry('');
   };
   useEffect(() => {
     const checkIfClickedOut = (e) => {

@@ -43,7 +43,10 @@ const Countries = () => {
       <div className="countries">
         <div className="countries__filters">
           <SearchBar debouncedSearch={debouncedSearch} />
-          <RegionSelect setRegion={setRegion} />
+          <RegionSelect
+            setRegion={setRegion}
+            setSearchedCountry={setSearchedCountry}
+          />
         </div>
         <div className="countries__card-container">
           {fetching && <LoadingSpinner />}

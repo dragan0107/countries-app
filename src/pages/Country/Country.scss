@@ -3,7 +3,7 @@
 .country-info-wrapper {
   background: $very-dark-blue;
   @include flex-justify-center;
-  height: calc(100vh - 6em);
+  height: calc(100vh - 6.05em);
 }
 .country-info {
   width: $desktop;
@@ -74,4 +74,54 @@
 .countries-spinner {
   position: absolute;
   top: -8%;
+}
+
+@media (max-width: $tablet) {
+  .country-info-wrapper {
+    height: 100%;
+  }
+  .country-info {
+    padding: 3em 2em;
+    &__about {
+      gap: 4em;
+      flex-direction: column;
+
+      &__flag {
+        width: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      &__desc {
+        width: 100%;
+        margin-left: 0;
+        justify-content: center;
+        font-size: 0.8em;
+      }
+      .country-desc-wrapper {
+        width: 100%;
+      }
+      .country-details {
+        gap: 0.8em;
+        flex-direction: column;
+        ul {
+          li {
+            margin: 1.5em 0;
+          }
+        }
+      }
+    }
+  }
+  .country-borders {
+    gap: 1em;
+  }
+  .country-borders__title {
+    width: 100%;
+    margin-bottom: 1em;
+    font-size: 1.3em;
+    font-weight: 600;
+  }
+}
+@media (max-width: $tablet) {
 }

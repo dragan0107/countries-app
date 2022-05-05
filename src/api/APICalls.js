@@ -21,7 +21,7 @@ export const getCountries = async (reg, searchedCountry) => {
 export const getCountryInfo = async (countryCode) => {
   try {
     const res = await axios.get(
-      `${BASE_URL}/alpha/${countryCode}${FIELDS},nativeName,topLevelDomain,currencies,languages,subregion,flag,borders`
+      `${BASE_URL}/alpha/${countryCode}${FIELDS},nativeName,topLevelDomain,currencies,languages,subregion,flag,borders,flags`
     );
     return res.data;
   } catch (error) {

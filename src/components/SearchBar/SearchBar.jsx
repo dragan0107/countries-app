@@ -1,14 +1,14 @@
 import './SearchBar.scss';
 
-const SearchBar = ({ setSearchedCountry }) => {
+const SearchBar = ({ debouncedSearch }) => {
   return (
     <div className="search-bar">
-      <i class="fa-solid fa-magnifying-glass"></i>
+      <i className="fa-solid fa-magnifying-glass"></i>
       <input
         type="text"
         placeholder="Search for a country..."
         autoFocus
-        onChange={(e) => setSearchedCountry(e.target.value)}
+        onChange={(e) => debouncedSearch(e)}
       />
     </div>
   );

@@ -39,7 +39,7 @@ const Country = () => {
         <div className="country-info">
           <Link to="/">
             <div className="country-info__btn">
-              <i class="fa-solid fa-arrow-left-long"></i>
+              <i className="fa-solid fa-arrow-left-long"></i>
               <span>Back</span>
             </div>
           </Link>
@@ -48,7 +48,7 @@ const Country = () => {
               {fetching && <LoadingSpinner />}
             </div>
             <div className="country-info__about__flag">
-              <img src={countryData.flag} alt="" />
+              <img src={countryData.flags?.png} alt="" />
             </div>
             <div className="country-info__about__desc">
               <div className="country-desc-wrapper">
@@ -88,7 +88,12 @@ const Country = () => {
                     <li>
                       Languages:{' '}
                       {countryData.languages?.map((el, idx) => (
-                        <span key={idx}>{el.name}, </span>
+                        <span key={idx}>
+                          {el.name}
+                          {idx !== countryData.languages.length - 1
+                            ? ','
+                            : ''}{' '}
+                        </span>
                       ))}
                     </li>
                   </ul>

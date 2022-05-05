@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+
 import CountryCard from '../CountryCard/CountryCard';
 import RegionSelect from '../RegionSelect/RegionSelect';
 import SearchBar from '../SearchBar/SearchBar';
-import './Countries.scss';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import { getCountries } from '../../api/APICalls';
+
+import './Countries.scss';
 
 const Countries = () => {
   const [countries, setCountries] = useState([]);
@@ -12,6 +14,22 @@ const Countries = () => {
   const [region, setRegion] = useState('all');
   const [searchedCountry, setSearchedCountry] = useState('');
   const [notification, setNotification] = useState(false);
+
+  const handleSearchChange = (e) => {
+    setSearchedCountry(e.target.value);
+  };
+
+  const debounce = (fn, waitTime) => {
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        fn(...args);
+      }, waitTime);
+    };
+  };
+
+  const debouncedSearch = useCallback(debounce(handleSearchChange, 500), []);
 
   useEffect(() => {
     (async () => {
@@ -32,7 +50,10 @@ const Countries = () => {
     <div className="countries-wrapper">
       <div className="countries">
         <div className="countries__filters">
-          <SearchBar setSearchedCountry={setSearchedCountry} />
+          <SearchBar
+            setSearchedCountry={setSearchedCountry}
+            debouncedSearch={debouncedSearch}
+          />
           <RegionSelect setRegion={setRegion} />
         </div>
         <div className="countries__card-container">

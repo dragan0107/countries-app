@@ -6,21 +6,32 @@
   z-index: 1;
 
   @include flex-justify-center;
-  .header {
-    // width: 75%;
-    width: $desktop;
-    padding: 2em 5em;
-    @include flex-align-center;
-    justify-content: space-between;
+}
+.header {
+  width: $desktop;
+  padding: 2em 5em;
+  @include flex-align-center;
+  justify-content: space-between;
 
+  &__title {
+    @include nunita($w: 800);
+    font-size: 1.5em;
+  }
+  &__theme-picker {
+    @include nunita($w: 600);
+    @include flex-center-all;
+    gap: 0.5em;
+  }
+}
+
+@media (max-width: $tablet) {
+  .header {
+    padding: 2em 1.5em;
     &__title {
-      @include nunita($w: 800);
-      font-size: 1.5em;
+      font-size: 1.05em;
     }
     &__theme-picker {
-      @include nunita($w: 600);
-      @include flex-center-all;
-      gap: 0.5em;
+      font-size: 0.85em;
     }
   }
 }

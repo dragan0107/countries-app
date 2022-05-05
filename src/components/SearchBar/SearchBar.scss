@@ -22,3 +22,15 @@
     color: $very-light-gray;
   }
 }
+
+@media (max-width: $tablet) {
+  .search-bar {
+    width: 50%;
+  }
+}
+
+@media (max-width: $mobile) {
+  .search-bar {
+    width: 100%;
+  }
+}

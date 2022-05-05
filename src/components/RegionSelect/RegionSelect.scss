@@ -48,3 +48,18 @@
   list-style: none;
   z-index: 1;
 }
+
+@media (max-width: 768px) {
+  .region-select {
+    width: 40%;
+  }
+  .region-select__menu__list {
+    width: 100%;
+  }
+}
+
+@media (max-width: $mobile) {
+  .region-select {
+    width: 60%;
+  }
+}

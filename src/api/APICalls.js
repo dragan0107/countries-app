@@ -1,13 +1,16 @@
 import axios from 'axios';
 
+const BASE_URL = 'https://restcountries.com/v2';
+const FIELDS = '?fields=name,capital,region,population,flags,alpha3Code';
+
 export const getCountries = async (reg, searchedCountry) => {
   try {
     const res = await axios.get(
       searchedCountry
-        ? `https://restcountries.com/v2/name/${searchedCountry}`
+        ? `${BASE_URL}/name/${searchedCountry}${FIELDS}`
         : reg !== 'all'
-        ? `https://restcountries.com/v2/region/${reg}`
-        : 'https://restcountries.com/v2/all?fields=name,capital,region,population,flags,alpha3Code'
+        ? `${BASE_URL}/region/${reg}${FIELDS}`
+        : `${BASE_URL}/all${FIELDS}`
     );
     return res;
   } catch (error) {
@@ -18,7 +21,7 @@ export const getCountries = async (reg, searchedCountry) => {
 export const getCountryInfo = async (countryCode) => {
   try {
     const res = await axios.get(
-      `https://restcountries.com/v2/alpha/${countryCode}`
+      `${BASE_URL}/alpha/${countryCode}${FIELDS},nativeName,topLevelDomain,currencies,languages,subregion,flag,borders`
     );
     return res.data;
   } catch (error) {

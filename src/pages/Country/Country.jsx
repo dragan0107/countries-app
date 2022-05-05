@@ -93,7 +93,7 @@ const Country = () => {
                     </li>
                   </ul>
                 </div>
-                {countryData?.borders && (
+                {borders.length > 0 && (
                   <div className="country-borders">
                     <span className="country-borders__title">
                       Border Countries:

@@ -40,17 +40,18 @@
 @media (max-width: $tablet) {
   .countries {
     width: 100%;
+    &__filters {
+      gap: 2.5em;
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 }
 
 @media (max-width: $mobile) {
   .countries {
     padding: 1.8em 1em;
-    &__filters {
-      gap: 2.5em;
-      flex-direction: column;
-      align-items: flex-start;
-    }
+
     &__card-container {
       justify-content: center;
     }

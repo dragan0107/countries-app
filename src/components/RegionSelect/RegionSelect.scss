@@ -5,7 +5,6 @@
   position: relative;
   @include nunita;
   padding: 1em 1.2em 1em 1.7em;
-  box-shadow: $shadow;
 
   &__menu {
     @include flex-align-center;
@@ -23,6 +22,7 @@
   width: 14em;
   border-radius: 5px;
   color: $very-light-gray;
+  box-shadow: $shadow;
 }
 .region-select__menu__title,
 .region-select__menu__list__item {

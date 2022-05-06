@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './BorderCountry.scss';
 
 const BorderCountry = ({ name }) => {

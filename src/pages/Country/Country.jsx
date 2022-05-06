@@ -5,6 +5,7 @@ import Header from '../../components/Header/Header';
 import { getCountryInfo } from '../../api/APICalls';
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 import BorderCountry from '../../components/BorderCountry/BorderCountry';
+import BackButton from '../../components/BackButton/BackButton';
 
 const Country = () => {
   const { countryCode } = useParams();
@@ -25,12 +26,13 @@ const Country = () => {
     let countries = [];
     countryData.borders?.forEach((cou) => {
       (async () => {
-        const res = await getCountryInfo(cou);
+        const getOnlyName = true;
+        const res = await getCountryInfo(cou, getOnlyName);
         countries.push(res.name);
         setBorders([...countries]);
       })();
     });
-  }, [countryData]);
+  }, [fetching]);
 
   return (
     <div className="country-page">
@@ -38,10 +40,7 @@ const Country = () => {
       <div className="country-info-wrapper">
         <div className="country-info">
           <Link to="/">
-            <div className="country-info__btn">
-              <i className="fa-solid fa-arrow-left-long"></i>
-              <span>Back</span>
-            </div>
+            <BackButton />
           </Link>
           <div className="country-info__about">
             <div className="countries-spinner">

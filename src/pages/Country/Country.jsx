@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import './Country.scss';
 import { Link, useParams } from 'react-router-dom';
-import Header from '../../components/Header/Header';
+
 import { getCountryInfo } from '../../api/APICalls';
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 import BorderCountry from '../../components/BorderCountry/BorderCountry';
 import BackButton from '../../components/BackButton/BackButton';
+
+import './Country.scss';
 
 const Country = () => {
   const { countryCode } = useParams();
@@ -20,6 +21,7 @@ const Country = () => {
       setCountryData(res);
       setFetching(false);
     })();
+    console.log('i run once');
   }, [countryCode]);
 
   useEffect(() => {
@@ -32,7 +34,7 @@ const Country = () => {
         setBorders([...countries]);
       })();
     });
-  }, [fetching]);
+  }, [countryData]);
 
   return (
     <div className="country-page">

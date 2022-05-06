@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
+
 import SingleRegion from '../SingleRegion/SingleRegion';
+
 import './RegionSelect.scss';
 
 const RegionSelect = ({ setRegion, setSearchedCountry }) => {

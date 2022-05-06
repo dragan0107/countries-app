@@ -2,7 +2,7 @@
 .header-wrapper {
   color: $white;
   background: $dark-blue;
-  z-index: 11;
+  z-index: 1;
   box-shadow: $shadow;
 
   @include flex-justify-center;

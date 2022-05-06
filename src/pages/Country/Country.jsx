@@ -36,7 +36,6 @@ const Country = () => {
 
   return (
     <div className="country-page">
-      <Header />
       <div className="country-info-wrapper">
         <div className="country-info">
           <Link to="/">

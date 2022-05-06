@@ -40,7 +40,7 @@
     .country-details {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 5em;
+      margin-bottom: 2.5em;
       ul {
         list-style: none;
         li {
@@ -94,6 +94,10 @@
         }
       }
       &__desc {
+        h3 {
+          font-size: 1.7em;
+          margin-bottom: 0.4em;
+        }
         width: 100%;
         margin-left: 0;
         justify-content: center;
@@ -107,10 +111,13 @@
         flex-direction: column;
         ul {
           li {
-            margin: 1.5em 0;
+            margin: 1.4em 0;
           }
         }
       }
+    }
+    &__btn {
+      font-size: 0.75em;
     }
   }
   .country-borders {
@@ -122,6 +129,4 @@
     font-size: 1.3em;
     font-weight: 600;
   }
-}
-@media (max-width: $tablet) {
 }

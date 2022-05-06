@@ -2,8 +2,8 @@
 .header-wrapper {
   color: $white;
   background: $dark-blue;
+  z-index: 11;
   box-shadow: $shadow;
-  z-index: 1;
 
   @include flex-justify-center;
 }
@@ -28,10 +28,10 @@
   .header {
     padding: 2em 1.5em;
     &__title {
-      font-size: 1.05em;
+      font-size: 0.9em;
     }
     &__theme-picker {
-      font-size: 0.85em;
+      font-size: 0.75em;
     }
   }
 }

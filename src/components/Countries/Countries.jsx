@@ -32,6 +32,7 @@ const Countries = () => {
       }
     });
     setCountries(filtered);
+    filtered.length === 0 ? setNotification(true) : setNotification(false);
   }, [searchedCountry, countriesOriginal]);
 
   useEffect(() => {

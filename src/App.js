@@ -1,8 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import Country from './pages/Country/Country';
 import Home from './pages/Home/Home';
-import './App.scss';
 import Layout from './components/Layout/Layout';
+
+import './App.scss';
 
 const App = () => {
   return (

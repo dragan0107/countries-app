@@ -12,3 +12,20 @@ $tablet: 768px;
 $desktop: 1440px;
 
 $shadow: 1px 2px 12px 0px #202020;
+
+.light {
+  .text {
+    color: $dark-blue;
+  }
+  .background {
+    background: $very-light-gray;
+  }
+}
+.dark {
+  .text {
+    color: $white;
+  }
+  .background {
+    background: $dark-blue;
+  }
+}

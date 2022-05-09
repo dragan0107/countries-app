@@ -1,4 +1,5 @@
 import './CountryCard.scss';
+
 import { Link } from 'react-router-dom';
 const CountryCard = ({ countryInfo, fetching }) => {
   return (

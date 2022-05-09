@@ -33,7 +33,7 @@ const RegionSelect = ({ setRegion, setSearchedCountry }) => {
 
   return (
     <div
-      className="region-select"
+      className="region-select light"
       onClick={() => setShowRegionList(!showRegionList)}
       ref={regionRef}
     >

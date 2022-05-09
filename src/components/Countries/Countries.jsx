@@ -12,6 +12,7 @@ import './Countries.scss';
 
 const Countries = () => {
   const [countries, setCountries] = useState([]);
+  const [countriesOriginal, setCountriesOriginal] = useState([]);
   const [fetching, setFetching] = useState(false);
   const [region, setRegion] = useState('all');
   const [searchedCountry, setSearchedCountry] = useState('');
@@ -24,23 +25,37 @@ const Countries = () => {
   const debouncedSearch = debounce(handleSearchChange, 500);
 
   useEffect(() => {
-    (async () => {
-      setFetching(true);
-      const res = await getCountries(region, searchedCountry);
-      setFetching(false);
-      if (res.data) {
-        setCountries(res.data);
-        setNotification(false);
-      } else {
-        setCountries([]);
-        setNotification(true);
+    let filtered = [];
+    countriesOriginal.forEach((cou) => {
+      if (cou.name.toLowerCase().includes(searchedCountry.toLowerCase())) {
+        filtered.push(cou);
       }
-    })();
+    });
+    setCountries(filtered);
+  }, [searchedCountry, countriesOriginal]);
+
+  useEffect(() => {
+    if (!searchedCountry) {
+      (async () => {
+        setFetching(true);
+        const res = await getCountries(region, searchedCountry);
+        setFetching(false);
+        if (res.data) {
+          setCountries(res.data);
+          setCountriesOriginal(res.data);
+          setNotification(false);
+        } else {
+          setCountries([]);
+          setCountriesOriginal([]);
+          setNotification(true);
+        }
+      })();
+    }
   }, [region, searchedCountry]);
 
   return (
-    <div className="countries-wrapper">
-      <div className="countries">
+    <div className="countries-wrapper  background">
+      <div className="countries background">
         <div className="countries__filters">
           <SearchBar debouncedSearch={debouncedSearch} />
           <RegionSelect

@@ -21,6 +21,7 @@
     @include nunita($w: 600);
     @include flex-center-all;
     gap: 0.5em;
+    cursor: pointer;
   }
 }
 

@@ -4,7 +4,10 @@ import { Link } from 'react-router-dom';
 const CountryCard = ({ countryInfo, fetching }) => {
   return (
     <Link to={`/country/${countryInfo.alpha3Code}`}>
-      <div className="country-card" style={{ opacity: fetching ? '.1' : '1' }}>
+      <div
+        className="country-card background-component text"
+        style={{ opacity: fetching ? '.1' : '1' }}
+      >
         <div className="country-card__image">
           <img src={countryInfo.flags.png} alt="" />
         </div>

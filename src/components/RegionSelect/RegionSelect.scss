@@ -40,6 +40,10 @@
   &:hover {
     background: $very-dark-blue;
   }
+  &:hover,
+  .text {
+    background: $dark-gray;
+  }
 }
 .region-select__menu__list {
   position: absolute;

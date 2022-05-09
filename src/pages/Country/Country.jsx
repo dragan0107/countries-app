@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 import { getCountryInfo } from '../../api/APICalls';
+
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 import BorderCountry from '../../components/BorderCountry/BorderCountry';
 import BackButton from '../../components/BackButton/BackButton';
@@ -38,19 +39,19 @@ const Country = () => {
 
   return (
     <div className="country-page">
-      <div className="country-info-wrapper">
+      <div className="country-info-wrapper background">
         <div className="country-info">
           <Link to="/">
             <BackButton />
           </Link>
-          <div className="country-info__about">
+          <div className="country-info__about ">
             <div className="countries-spinner">
               {fetching && <LoadingSpinner />}
             </div>
             <div className="country-info__about__flag">
               <img src={countryData.flags?.png} alt="" />
             </div>
-            <div className="country-info__about__desc">
+            <div className="country-info__about__desc text">
               <div className="country-desc-wrapper">
                 <h3>{countryData.name}</h3>
                 <div className="country-details">

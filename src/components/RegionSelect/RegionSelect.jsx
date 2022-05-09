@@ -33,7 +33,7 @@ const RegionSelect = ({ setRegion, setSearchedCountry }) => {
 
   return (
     <div
-      className="region-select light"
+      className="region-select background-component text"
       onClick={() => setShowRegionList(!showRegionList)}
       ref={regionRef}
     >
@@ -47,7 +47,7 @@ const RegionSelect = ({ setRegion, setSearchedCountry }) => {
         ></i>
       </div>
       {showRegionList && (
-        <ul className="region-select__menu__list">
+        <ul className="region-select__menu__list background-component text">
           {regions.map((reg) => (
             <SingleRegion
               key={reg}

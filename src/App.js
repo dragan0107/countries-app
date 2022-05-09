@@ -6,17 +6,21 @@ import Layout from './components/Layout/Layout';
 
 import './App.scss';
 
+import { ThemeProvider } from './utils/ThemeContext';
+
 const App = () => {
   return (
     <div className="app">
-      <Layout>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/country/:countryCode" element={<Country />} />
-          </Routes>
-        </BrowserRouter>
-      </Layout>
+      <ThemeProvider>
+        <Layout>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/country/:countryCode" element={<Country />} />
+            </Routes>
+          </BrowserRouter>
+        </Layout>
+      </ThemeProvider>
     </div>
   );
 };

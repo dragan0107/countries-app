@@ -25,18 +25,20 @@ const Countries = () => {
   const debouncedSearch = debounce(handleSearchChange, 500);
 
   useEffect(() => {
-    let filtered = [];
-    countriesOriginal.forEach((cou) => {
-      if (cou.name.toLowerCase().includes(searchedCountry.toLowerCase())) {
-        filtered.push(cou);
-      }
-    });
-    setCountries(filtered);
-    filtered.length === 0 ? setNotification(true) : setNotification(false);
-  }, [searchedCountry, countriesOriginal]);
+    if (region !== 'all') {
+      let filtered = [];
+      countriesOriginal.forEach((cou) => {
+        if (cou.name.toLowerCase().includes(searchedCountry.toLowerCase())) {
+          filtered.push(cou);
+        }
+      });
+      setCountries(filtered);
+      filtered.length === 0 ? setNotification(true) : setNotification(false);
+    }
+  }, [searchedCountry, countriesOriginal, region]);
 
   useEffect(() => {
-    if (!searchedCountry) {
+    if (!searchedCountry || (searchedCountry && region === 'all')) {
       (async () => {
         setFetching(true);
         const res = await getCountries(region, searchedCountry);

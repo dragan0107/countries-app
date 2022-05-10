@@ -44,72 +44,77 @@ const Country = () => {
             <BackButton />
           </Link>
           <div className="country-info__about ">
-            <div className="countries-spinner">
-              {fetching && <LoadingSpinner />}
-            </div>
-            <div className="country-info__about__flag">
-              <img src={countryData.flags?.png} alt="" />
-            </div>
-            <div className="country-info__about__desc text">
-              <div className="country-desc-wrapper">
-                <h3>{countryData.name}</h3>
-                <div className="country-details">
-                  <ul>
-                    <li>
-                      Native Name: <span>{countryData.nativeName}</span>
-                    </li>
-                    <li>
-                      Population:{' '}
-                      <span>
-                        {parseInt(countryData.population).toLocaleString()}
-                      </span>
-                    </li>
-                    <li>
-                      Region: <span>{countryData.region}</span>
-                    </li>
-                    <li>
-                      Sub Region: <span>{countryData.subregion}</span>{' '}
-                    </li>
-                    <li>
-                      Capital: <span>{countryData.capital}</span>{' '}
-                    </li>
-                  </ul>
-                  <ul>
-                    <li>
-                      Top Level Domain:{' '}
-                      <span>{countryData.topLevelDomain}</span>
-                    </li>
-                    <li>
-                      Currencies:{' '}
-                      {countryData.currencies?.map((el, idx) => (
-                        <span key={idx}>{el.name}</span>
-                      ))}
-                    </li>
-                    <li>
-                      Languages:{' '}
-                      {countryData.languages?.map((el, idx) => (
-                        <span key={idx}>
-                          {el.name}
-                          {idx !== countryData.languages.length - 1
-                            ? ','
-                            : ''}{' '}
-                        </span>
-                      ))}
-                    </li>
-                  </ul>
-                </div>
-                {borders.length > 0 && (
-                  <div className="country-borders">
-                    <span className="country-borders__title">
-                      Border Countries:
-                    </span>
-                    {borders.map((bor, idx) => (
-                      <BorderCountry key={idx} name={bor} />
-                    ))}
-                  </div>
-                )}
+            {fetching ? (
+              <div className="countries-spinner">
+                <LoadingSpinner />
               </div>
-            </div>
+            ) : (
+              <>
+                <div className="country-info__about__flag">
+                  <img src={countryData.flags?.png} alt="" />
+                </div>
+                <div className="country-info__about__desc text">
+                  <div className="country-desc-wrapper">
+                    <h3>{countryData.name}</h3>
+                    <div className="country-details">
+                      <ul>
+                        <li>
+                          Native Name: <span>{countryData.nativeName}</span>
+                        </li>
+                        <li>
+                          Population:{' '}
+                          <span>
+                            {parseInt(countryData.population).toLocaleString()}
+                          </span>
+                        </li>
+                        <li>
+                          Region: <span>{countryData.region}</span>
+                        </li>
+                        <li>
+                          Sub Region: <span>{countryData.subregion}</span>{' '}
+                        </li>
+                        <li>
+                          Capital: <span>{countryData.capital}</span>{' '}
+                        </li>
+                      </ul>
+                      <ul>
+                        <li>
+                          Top Level Domain:{' '}
+                          <span>{countryData.topLevelDomain}</span>
+                        </li>
+                        <li>
+                          Currencies:{' '}
+                          {countryData.currencies?.map((el, idx) => (
+                            <span key={idx}>{el.name}</span>
+                          ))}
+                        </li>
+                        <li>
+                          Languages:{' '}
+                          {countryData.languages?.map((el, idx) => (
+                            <span key={idx}>
+                              {el.name}
+                              {idx !== countryData.languages.length - 1
+                                ? ','
+                                : ''}{' '}
+                            </span>
+                          ))}
+                        </li>
+                      </ul>
+                    </div>
+                    {borders.length > 0 && (
+                      <div className="country-borders">
+                        <span className="country-borders__title">
+                          Border Countries:
+                        </span>
+                        {borders.map((bor, idx) => (
+                          <BorderCountry key={idx} name={bor} />
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>

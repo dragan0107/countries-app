@@ -1,8 +1,9 @@
 @import '../../assets/sass/main.scss';
 
 .countries-wrapper {
-  background: $very-dark-blue;
   @include flex-justify-center;
+  background: $very-dark-blue;
+  transition: all 0.2s ease-in-out;
 }
 .countries {
   padding: 3em 4em;

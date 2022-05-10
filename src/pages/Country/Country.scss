@@ -55,6 +55,7 @@
   }
   &__btn {
     @include flex-center-all;
+    @include nunita;
     gap: 0.7em;
     background: $dark-blue;
     padding: 0.7em 3em;
@@ -62,7 +63,7 @@
     border-radius: 5px;
     color: $white;
     box-shadow: $shadow;
-    @include nunita;
+    transition: all 0.2s ease-in-out;
   }
 }
 

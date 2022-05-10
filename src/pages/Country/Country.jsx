@@ -22,7 +22,6 @@ const Country = () => {
       setCountryData(res);
       setFetching(false);
     })();
-    console.log('i run once');
   }, [countryCode]);
 
   useEffect(() => {

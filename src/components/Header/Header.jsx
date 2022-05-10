@@ -6,6 +6,7 @@ import './Header.scss';
 
 const Header = () => {
   const { theme, setTheme } = useContext(ThemeContext);
+
   const themeHandler = () => {
     if (theme === 'light') {
       setTheme('');

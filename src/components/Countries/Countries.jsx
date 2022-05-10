@@ -66,8 +66,8 @@ const Countries = () => {
         </div>
         <div className="countries__card-container">
           {fetching && <LoadingSpinner />}
-          {notification && (
-            <span className="countries__card-container__notification">
+          {notification && !fetching && (
+            <span className="countries__card-container__notification text">
               No countries found.
             </span>
           )}

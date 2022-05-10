@@ -4,10 +4,10 @@ const LoadingSpinner = () => {
   return (
     <div className="ellipsis-wrapper">
       <div className="lds-ellipsis">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div className="ellipsis-circle background-dark"></div>
+        <div className="ellipsis-circle background-dark"></div>
+        <div className="ellipsis-circle background-dark"></div>
+        <div className="ellipsis-circle background-dark"></div>
       </div>
     </div>
   );

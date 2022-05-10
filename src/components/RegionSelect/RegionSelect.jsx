@@ -7,6 +7,7 @@ import './RegionSelect.scss';
 const RegionSelect = ({ setRegion, setSearchedCountry }) => {
   const [showRegionList, setShowRegionList] = useState(false);
   const [currentRegion, setCurrentRegion] = useState('All');
+
   const regions = ['all', 'africa', 'americas', 'asia', 'europe', 'oceania'];
   const regionRef = useRef();
 

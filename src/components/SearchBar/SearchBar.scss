@@ -8,6 +8,7 @@
   width: 30em;
   background-color: $dark-blue;
   box-shadow: $shadow;
+  transition: all 0.2s ease-in-out;
 
   input {
     @include nunita($w: 600);

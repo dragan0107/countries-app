@@ -1,11 +1,11 @@
 @import '../../assets/sass/main.scss';
 .header-wrapper {
+  @include flex-justify-center;
   color: $white;
+  box-shadow: $shadow;
   background: $dark-blue;
   z-index: 1;
-  box-shadow: $shadow;
-
-  @include flex-justify-center;
+  transition: all 0.2s ease-in-out;
 }
 .header {
   width: $desktop;

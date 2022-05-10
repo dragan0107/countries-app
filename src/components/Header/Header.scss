@@ -4,7 +4,7 @@
   color: $white;
   box-shadow: $shadow;
   background: $dark-blue;
-  transition: all 0.2s ease-in-out;
+  transition: $smooth;
   z-index: 1;
 }
 .header {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { debounce } from '../../utils/debounce';
+import { debounce } from '../../utils/Debounce';
 
 import CountryCard from '../CountryCard/CountryCard';
 import RegionSelect from '../RegionSelect/RegionSelect';

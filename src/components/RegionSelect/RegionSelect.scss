@@ -5,7 +5,7 @@
   position: relative;
   @include nunita;
   padding: 1em 1.2em 1em 1.7em;
-  transition: all 0.2s ease-in-out;
+  transition: $smooth;
 
   &__menu {
     @include flex-align-center;

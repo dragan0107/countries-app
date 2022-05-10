@@ -11,6 +11,7 @@ $mobile: 375px;
 $tablet: 768px;
 $desktop: 1440px;
 
+$smooth: all 0.2s ease-in-out;
 $shadow: 1px 2px 12px 0px #272727;
 
 .light {
@@ -19,7 +20,7 @@ $shadow: 1px 2px 12px 0px #272727;
   }
   .background {
     background: $very-light-gray;
-    transition: all 0.2s ease-in-out;
+    transition: $smooth;
   }
   input[type='text']::placeholder {
     color: $dark-blue;

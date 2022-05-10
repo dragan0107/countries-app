@@ -28,9 +28,9 @@
     }
 
     &__desc {
+      @include nunita;
       display: flex;
       justify-content: flex-end;
-      @include nunita;
       color: $white;
       h3 {
         font-size: 2em;
@@ -63,7 +63,7 @@
     border-radius: 5px;
     color: $white;
     box-shadow: $shadow;
-    transition: all 0.2s ease-in-out;
+    transition: $smooth;
   }
 }
 
@@ -73,8 +73,8 @@
   gap: 0.8em;
 }
 .countries-spinner {
-  position: absolute;
-  top: -8%;
+  @include absolute-center;
+  top: 15%;
 }
 
 @media (max-width: $tablet) {

@@ -1,7 +1,7 @@
+@import '../../assets/sass/main.scss';
+
 .ellipsis-wrapper {
-  position: absolute;
-  top: 10em;
-  left: 50%;
+  @include absolute-center;
 }
 .lds-ellipsis {
   display: inline-block;

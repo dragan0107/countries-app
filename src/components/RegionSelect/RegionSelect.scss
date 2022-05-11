@@ -63,6 +63,12 @@
   }
 }
 
+@media (max-width: 590px) {
+  .region-select {
+    width: 50%;
+  }
+}
+
 @media (max-width: $mobile) {
   .region-select {
     width: 60%;

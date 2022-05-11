@@ -30,7 +30,7 @@ const Country = () => {
       (async () => {
         const getOnlyName = true;
         const res = await getCountryInfo(cou, getOnlyName);
-        countries.push(res.name);
+        countries.push(res);
         setBorders([...countries]);
       })();
     });
@@ -107,7 +107,11 @@ const Country = () => {
                           Border Countries:
                         </span>
                         {borders.map((bor, idx) => (
-                          <BorderCountry key={idx} name={bor} />
+                          <BorderCountry
+                            key={idx}
+                            name={bor.name}
+                            code={bor.alpha3Code}
+                          />
                         ))}
                       </div>
                     )}

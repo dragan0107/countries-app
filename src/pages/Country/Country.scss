@@ -8,6 +8,7 @@
 .country-info {
   width: $desktop;
   padding: 6em 4em;
+
   &__about {
     @include flex-center-all;
     margin-top: 4em;
@@ -71,6 +72,11 @@
   @include flex-align-center;
   flex-wrap: wrap;
   gap: 0.8em;
+}
+.border-wrapper {
+  a {
+    color: $white;
+  }
 }
 .countries-spinner {
   @include absolute-center;

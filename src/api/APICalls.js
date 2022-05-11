@@ -22,7 +22,7 @@ export const getCountryInfo = async (countryCode, getOnlyName) => {
   try {
     const res = await axios.get(
       getOnlyName
-        ? `${BASE_URL}/alpha/${countryCode}?fields=name`
+        ? `${BASE_URL}/alpha/${countryCode}?fields=name,alpha3Code`
         : `${BASE_URL}/alpha/${countryCode}${FIELDS},nativeName,topLevelDomain,currencies,languages,subregion,flag,borders,flags`
     );
     return res.data;

@@ -1,6 +1,6 @@
 # **Countries app**
 
-## [Click here for demo.]('https://drip016.github.io/countries-app)
+## [Click here for demo.](https://drip016.github.io/countries-app)
 
 > ### In this project, I was provided with a design preview, and style details of the app and my task was to recreate the Front-end from scratch. Front-end communicates with the [REST Countries API v2.](https://restcountries.com/)
 

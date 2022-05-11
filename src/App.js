@@ -12,8 +12,11 @@ const App = () => {
       <Layout>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/country/:countryCode" element={<Country />} />
+            <Route path="/countries-app" element={<Home />} />
+            <Route
+              path="/countries-app/country/:countryCode"
+              element={<Country />}
+            />
           </Routes>
         </BrowserRouter>
       </Layout>

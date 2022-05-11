@@ -40,7 +40,7 @@ const Country = () => {
     <div className="country-page">
       <div className="country-info-wrapper background">
         <div className="country-info">
-          <Link to="/">
+          <Link to="/countries-app">
             <BackButton />
           </Link>
           <div className="country-info__about ">

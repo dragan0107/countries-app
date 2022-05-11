@@ -65,6 +65,9 @@
     color: $white;
     box-shadow: $shadow;
     transition: $smooth;
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 }
 
@@ -74,6 +77,11 @@
   gap: 0.8em;
 }
 .border-wrapper {
+  transition: $smooth;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.08);
+  }
   a {
     color: $white;
   }

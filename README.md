@@ -8,7 +8,7 @@
 
 ## Technologies used:
 
-> ### Front-end is fully made in **_React_** and **_SASS_**, and no external packages were used apart from **_`axios`_** for data fetching.
+> ### Front-end is fully made in **`React`** and **`SASS`**, and no external packages were used apart from **`axios`** for data fetching.
 
 ## Functionalities:
 
@@ -17,4 +17,6 @@
 - Countries can also be searched by their name.
 - Implemented **_debouncing_** for the search input to optimize the app.
 - By clicking on a country card, user is taken to the second page showing more details about the country itself, from which user can also return back to the home page.
+- **Border country** card on the second page, takes to the details page as well.
 - User can toggle between Dark / Light mode which persists on page reload.
+- App is fully responsive for all screen sizes.

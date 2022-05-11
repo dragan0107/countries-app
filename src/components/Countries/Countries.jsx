@@ -1,14 +1,15 @@
-import { useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 
 import { debounce } from '../../utils/Debounce';
 
-import CountryCard from '../CountryCard/CountryCard';
 import RegionSelect from '../RegionSelect/RegionSelect';
 import SearchBar from '../SearchBar/SearchBar';
-import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import { getCountries } from '../../api/APICalls';
 
 import './Countries.scss';
+import CircleSpinner from '../CircleSpinner/CircleSpinner';
+
+const CountryCard = lazy(() => import('../CountryCard/CountryCard'));
 
 const Countries = () => {
   const [countries, setCountries] = useState([]);
@@ -67,18 +68,19 @@ const Countries = () => {
           />
         </div>
         <div className="countries__card-container">
-          {fetching && <LoadingSpinner />}
           {notification && !fetching && (
             <span className="countries__card-container__notification text">
               No countries found.
             </span>
           )}
           {countries.map((cou) => (
-            <CountryCard
-              key={cou.alpha3Code}
-              countryInfo={cou}
-              fetching={fetching}
-            />
+            <Suspense fallback={<CircleSpinner />}>
+              <CountryCard
+                key={cou.alpha3Code}
+                countryInfo={cou}
+                fetching={fetching}
+              />
+            </Suspense>
           ))}
         </div>
       </div>

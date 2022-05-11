@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 import { getCountryInfo } from '../../api/APICalls';
 
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
-import BorderCountry from '../../components/BorderCountry/BorderCountry';
+// import BorderCountry from '../../components/BorderCountry/BorderCountry';
 import BackButton from '../../components/BackButton/BackButton';
-
 import './Country.scss';
+import CircleSpinner from '../../components/CircleSpinner/CircleSpinner';
 
+const BorderCountry = lazy(() =>
+  import('../../components/BorderCountry/BorderCountry')
+);
 const Country = () => {
   const { countryCode } = useParams();
   const [countryData, setCountryData] = useState([]);
@@ -107,11 +110,13 @@ const Country = () => {
                           Border Countries:
                         </span>
                         {borders.map((bor, idx) => (
-                          <BorderCountry
-                            key={idx}
-                            name={bor.name}
-                            code={bor.alpha3Code}
-                          />
+                          <Suspense fallback={<CircleSpinner />}>
+                            <BorderCountry
+                              key={idx}
+                              name={bor.name}
+                              code={bor.alpha3Code}
+                            />
+                          </Suspense>
                         ))}
                       </div>
                     )}

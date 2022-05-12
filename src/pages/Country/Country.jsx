@@ -1,10 +1,9 @@
 import React, { lazy, Suspense, useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import { getCountryInfo } from '../../api/APICalls';
 
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
-// import BorderCountry from '../../components/BorderCountry/BorderCountry';
 import BackButton from '../../components/BackButton/BackButton';
 import './Country.scss';
 import CircleSpinner from '../../components/CircleSpinner/CircleSpinner';
@@ -12,6 +11,7 @@ import CircleSpinner from '../../components/CircleSpinner/CircleSpinner';
 const BorderCountry = lazy(() =>
   import('../../components/BorderCountry/BorderCountry')
 );
+
 const Country = () => {
   const { countryCode } = useParams();
   const [countryData, setCountryData] = useState([]);
@@ -43,9 +43,7 @@ const Country = () => {
     <div className="country-page">
       <div className="country-info-wrapper background">
         <div className="country-info">
-          <Link to="/countries-app">
-            <BackButton />
-          </Link>
+          <BackButton />
           <div className="country-info__about ">
             {fetching ? (
               <div className="countries-spinner">
@@ -110,9 +108,8 @@ const Country = () => {
                           Border Countries:
                         </span>
                         {borders.map((bor, idx) => (
-                          <Suspense fallback={<CircleSpinner />}>
+                          <Suspense fallback={<CircleSpinner />} key={idx}>
                             <BorderCountry
-                              key={idx}
                               name={bor.name}
                               code={bor.alpha3Code}
                             />

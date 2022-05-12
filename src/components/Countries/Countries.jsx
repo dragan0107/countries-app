@@ -74,12 +74,8 @@ const Countries = () => {
             </span>
           )}
           {countries.map((cou) => (
-            <Suspense fallback={<CircleSpinner />}>
-              <CountryCard
-                key={cou.alpha3Code}
-                countryInfo={cou}
-                fetching={fetching}
-              />
+            <Suspense fallback={<CircleSpinner />} key={cou.alpha3Code}>
+              <CountryCard countryInfo={cou} fetching={fetching} />
             </Suspense>
           ))}
         </div>

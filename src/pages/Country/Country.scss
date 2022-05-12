@@ -3,7 +3,7 @@
 .country-info-wrapper {
   background: $very-dark-blue;
   @include flex-justify-center;
-  height: calc(100vh - 6em);
+  min-height: calc(100vh - 6em);
 }
 .country-info {
   width: $desktop;
@@ -65,8 +65,15 @@
     color: $white;
     box-shadow: $shadow;
     transition: $smooth;
+    cursor: pointer;
     &:hover {
+      box-shadow: 1px 2px 12px 0px #6b6a6a;
       transform: scale(1.05);
+    }
+  }
+  &__btn.background-component {
+    &:hover {
+      box-shadow: 1px 2px 12px 0px #252525;
     }
   }
 }
@@ -80,6 +87,7 @@
   transition: $smooth;
   cursor: pointer;
   &:hover {
+    box-shadow: 1px 2px 12px 0px #6b6a6a;
     transform: scale(1.08);
   }
   a {

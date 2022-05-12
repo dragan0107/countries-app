@@ -11,4 +11,7 @@
   &__name {
     font-size: 0.9em;
   }
+  &:hover.background-component {
+    box-shadow: 2px 2px 15px -8px #999999;
+  }
 }

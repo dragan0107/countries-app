@@ -6,7 +6,7 @@ const FIELDS = '?fields=name,capital,region,population,flags,alpha3Code';
 export const getCountries = async (reg, searchedCountry) => {
   try {
     const res = await axios.get(
-      searchedCountry
+      searchedCountry && reg === 'all'
         ? `${BASE_URL}/name/${searchedCountry}${FIELDS}`
         : reg !== 'all'
         ? `${BASE_URL}/region/${reg}${FIELDS}`

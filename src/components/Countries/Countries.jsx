@@ -25,16 +25,23 @@ const Countries = () => {
 
   const debouncedSearch = debounce(handleSearchChange, 500);
 
+  const filterCountries = (arr) => {
+    let filtered = [];
+    arr.forEach((cou) => {
+      if (
+        cou.name.toLowerCase().includes(searchedCountry.toLowerCase()) &&
+        cou.region.toLowerCase() === region
+      ) {
+        filtered.push(cou);
+      }
+    });
+    setCountries(filtered);
+    filtered.length === 0 ? setNotification(true) : setNotification(false);
+  };
+
   useEffect(() => {
     if (region !== 'all') {
-      let filtered = [];
-      countriesOriginal.forEach((cou) => {
-        if (cou.name.toLowerCase().includes(searchedCountry.toLowerCase())) {
-          filtered.push(cou);
-        }
-      });
-      setCountries(filtered);
-      filtered.length === 0 ? setNotification(true) : setNotification(false);
+      filterCountries(countriesOriginal);
     }
   }, [searchedCountry, countriesOriginal, region]);
 

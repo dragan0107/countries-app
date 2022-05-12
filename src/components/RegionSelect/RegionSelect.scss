@@ -5,14 +5,17 @@
   position: relative;
   @include nunita;
   padding: 1em 1.2em 1em 1.7em;
-  transition: $smooth;
 
   &__menu {
     @include flex-align-center;
     justify-content: space-between;
 
     i {
+      transition: $smooth;
       font-size: 0.6em;
+    }
+    i.icon-rotate {
+      transform: rotate(-180deg);
     }
   }
 }

@@ -14,7 +14,7 @@ const RegionSelect = ({ setRegion, setSearchedCountry }) => {
   const handleChange = (val, valUppercase) => {
     setRegion(val);
     setCurrentRegion(valUppercase);
-    setSearchedCountry('');
+    // setSearchedCountry('');
   };
   useEffect(() => {
     const checkIfClickedOut = (e) => {
@@ -42,8 +42,7 @@ const RegionSelect = ({ setRegion, setSearchedCountry }) => {
         <span className="region-select__menu__title">{currentRegion}</span>
         <i
           className={
-            'fa-solid' +
-            (showRegionList ? ' fa-chevron-up' : ' fa-chevron-down')
+            'fa-solid fa-chevron-up' + (showRegionList ? ' icon-rotate' : '')
           }
         ></i>
       </div>

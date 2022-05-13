@@ -25,23 +25,19 @@ const Countries = () => {
 
   const debouncedSearch = debounce(handleSearchChange, 500);
 
-  const filterCountries = (arr) => {
-    let filtered = [];
-    arr.forEach((cou) => {
-      if (
-        cou.name.toLowerCase().includes(searchedCountry.toLowerCase()) &&
-        cou.region.toLowerCase() === region
-      ) {
-        filtered.push(cou);
-      }
-    });
-    setCountries(filtered);
-    filtered.length === 0 ? setNotification(true) : setNotification(false);
-  };
-
   useEffect(() => {
     if (region !== 'all') {
-      filterCountries(countriesOriginal);
+      let filtered = [];
+      countriesOriginal.forEach((cou) => {
+        if (
+          cou.name.toLowerCase().includes(searchedCountry.toLowerCase()) &&
+          cou.region.toLowerCase() === region
+        ) {
+          filtered.push(cou);
+        }
+      });
+      setCountries(filtered);
+      filtered.length === 0 ? setNotification(true) : setNotification(false);
     }
   }, [searchedCountry, countriesOriginal, region]);
 
@@ -69,8 +65,8 @@ const Countries = () => {
   }, [region, searchedCountry]);
 
   return (
-    <div className="countries-wrapper  background">
-      <div className="countries background">
+    <div className="countries-wrapper background">
+      <div className="countries">
         <div className="countries__filters">
           <SearchBar debouncedSearch={debouncedSearch} />
           <RegionSelect

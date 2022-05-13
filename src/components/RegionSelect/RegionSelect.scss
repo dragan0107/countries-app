@@ -9,7 +9,6 @@
   &__menu {
     @include flex-align-center;
     justify-content: space-between;
-    transition: $smooth;
 
     i {
       font-size: 0.6em;
@@ -27,6 +26,7 @@
   border-radius: 5px;
   color: $very-light-gray;
   box-shadow: $shadow;
+  transition: $smooth;
 }
 .region-select__menu__title,
 .region-select__menu__list__item {

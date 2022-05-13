@@ -50,7 +50,6 @@ const Countries = () => {
       (async () => {
         setFetching(true);
         const res = await getCountries(region, searchedCountry);
-        setFetching(false);
         if (res.data) {
           setCountries(res.data);
           setCountriesOriginal(res.data);
@@ -60,6 +59,7 @@ const Countries = () => {
           setCountriesOriginal([]);
           setNotification(true);
         }
+        setFetching(false);
       })();
     }
   }, [region, searchedCountry]);
@@ -80,11 +80,12 @@ const Countries = () => {
               No countries found.
             </span>
           )}
-          {countries.map((cou) => (
-            <Suspense fallback={<CircleSpinner />} key={cou.alpha3Code}>
-              <CountryCard countryInfo={cou} fetching={fetching} />
-            </Suspense>
-          ))}
+          {!fetching &&
+            countries.map((cou) => (
+              <Suspense fallback={<CircleSpinner />} key={cou.alpha3Code}>
+                <CountryCard countryInfo={cou} fetching={fetching} />
+              </Suspense>
+            ))}
         </div>
       </div>
     </div>

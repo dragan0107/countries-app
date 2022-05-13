@@ -46,7 +46,11 @@ const Countries = () => {
   }, [searchedCountry, countriesOriginal, region]);
 
   useEffect(() => {
-    if (!searchedCountry || (searchedCountry && region === 'all')) {
+    if (
+      !searchedCountry ||
+      (searchedCountry && region === 'all') ||
+      (searchedCountry && region !== 'all')
+    ) {
       (async () => {
         setFetching(true);
         const res = await getCountries(region, searchedCountry);

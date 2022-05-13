@@ -9,9 +9,9 @@
   &__menu {
     @include flex-align-center;
     justify-content: space-between;
+    transition: $smooth;
 
     i {
-      transition: $smooth;
       font-size: 0.6em;
     }
     i.icon-rotate {

@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom';
+
 import './CountryCard.scss';
 
-import { Link } from 'react-router-dom';
 const CountryCard = ({ countryInfo, fetching }) => {
   return (
     <Link to={`/countries-app/country/${countryInfo.alpha3Code}`}>

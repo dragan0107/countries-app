@@ -1,6 +1,8 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+
 import { ThemeContext } from '../../utils/ThemeContext';
+
 import './BorderCountry.scss';
 
 const BorderCountry = ({ name, code }) => {

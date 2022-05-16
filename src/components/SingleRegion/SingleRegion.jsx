@@ -1,5 +1,3 @@
-import React from 'react';
-
 const SingleRegion = ({ handleChange, reg }) => {
   let regUppercase = reg[0].toUpperCase() + reg.slice(1);
   return (

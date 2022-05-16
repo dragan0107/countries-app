@@ -1,12 +1,13 @@
-import React, { lazy, Suspense, useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { getCountryInfo } from '../../api/APICalls';
 
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 import BackButton from '../../components/BackButton/BackButton';
-import './Country.scss';
 import CircleSpinner from '../../components/CircleSpinner/CircleSpinner';
+
+import './Country.scss';
 
 const BorderCountry = lazy(() =>
   import('../../components/BorderCountry/BorderCountry')

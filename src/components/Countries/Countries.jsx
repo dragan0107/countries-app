@@ -1,13 +1,13 @@
-import { lazy, Suspense, useEffect, useState } from 'react';
+import { lazy, Suspense, useCallback, useEffect, useState } from 'react';
 
 import { debounce } from '../../utils/Debounce';
+import { getCountries } from '../../api/APICalls';
 
 import RegionSelect from '../RegionSelect/RegionSelect';
 import SearchBar from '../SearchBar/SearchBar';
-import { getCountries } from '../../api/APICalls';
+import CircleSpinner from '../CircleSpinner/CircleSpinner';
 
 import './Countries.scss';
-import CircleSpinner from '../CircleSpinner/CircleSpinner';
 
 const CountryCard = lazy(() => import('../CountryCard/CountryCard'));
 
@@ -25,10 +25,10 @@ const Countries = () => {
 
   const debouncedSearch = debounce(handleSearchChange, 500);
 
-  useEffect(() => {
-    if (region !== 'all') {
+  const filterHelper = useCallback(
+    (arr) => {
       let filtered = [];
-      countriesOriginal.forEach((cou) => {
+      arr.forEach((cou) => {
         if (
           cou.name.toLowerCase().includes(searchedCountry.toLowerCase()) &&
           cou.region.toLowerCase() === region
@@ -36,10 +36,18 @@ const Countries = () => {
           filtered.push(cou);
         }
       });
+      return filtered;
+    },
+    [region, searchedCountry]
+  );
+
+  useEffect(() => {
+    if (region !== 'all') {
+      const filtered = filterHelper(countriesOriginal);
       setCountries(filtered);
       filtered.length === 0 ? setNotification(true) : setNotification(false);
     }
-  }, [searchedCountry, countriesOriginal, region]);
+  }, [searchedCountry, countriesOriginal, region, filterHelper]);
 
   useEffect(() => {
     if (
@@ -51,7 +59,12 @@ const Countries = () => {
         setFetching(true);
         const res = await getCountries(region, searchedCountry);
         if (res.data) {
-          setCountries(res.data);
+          if (searchedCountry && region !== 'all') {
+            const filtered = filterHelper(res.data);
+            setCountries(filtered);
+          } else {
+            setCountries(res.data);
+          }
           setCountriesOriginal(res.data);
           setNotification(false);
         } else {
@@ -62,7 +75,7 @@ const Countries = () => {
         setFetching(false);
       })();
     }
-  }, [region, searchedCountry]);
+  }, [region, searchedCountry, filterHelper]);
 
   return (
     <div className="countries-wrapper background">
@@ -81,7 +94,7 @@ const Countries = () => {
             </span>
           )}
           {!fetching &&
-            countries.map((cou) => (
+            countries?.map((cou) => (
               <Suspense fallback={<CircleSpinner />} key={cou.alpha3Code}>
                 <CountryCard countryInfo={cou} fetching={fetching} />
               </Suspense>

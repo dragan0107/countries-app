@@ -45,18 +45,26 @@ const RegionSelect = ({ setRegion }) => {
           }
         ></i>
       </div>
-      {showRegionList && (
-        <ul className="region-select__menu__list background-component text">
-          {regions.map((reg) => (
-            <SingleRegion
-              key={reg}
-              reg={reg}
-              handleChange={handleChange}
-              setCurrentRegion={setCurrentRegion}
-            />
-          ))}
+      {
+        <ul
+          className="region-select__menu__list background-component text"
+          style={{
+            height: showRegionList ? '13em' : '0',
+            visibility: showRegionList ? 'visible' : 'hidden',
+          }}
+        >
+          <div className="list-item-wrapper">
+            {regions.map((reg) => (
+              <SingleRegion
+                key={reg}
+                reg={reg}
+                handleChange={handleChange}
+                setCurrentRegion={setCurrentRegion}
+              />
+            ))}
+          </div>
         </ul>
-      )}
+      }
     </div>
   );
 };

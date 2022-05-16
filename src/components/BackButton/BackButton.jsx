@@ -10,7 +10,7 @@ const BackButton = () => {
 
   return (
     <div
-      className={`country-info__btn ${
+      className={`country-info__btn hover-shadow ${
         theme === 'light' ? ' background-component' : ''
       }`}
       onClick={() => navigate(-1)}

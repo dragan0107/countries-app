@@ -9,7 +9,7 @@ const BorderCountry = ({ name, code }) => {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <div className="border-wrapper">
+    <div className="border-wrapper ">
       <Link
         to={`/countries-app/country/${code}`}
         style={{ textDecoration: 'none' }}

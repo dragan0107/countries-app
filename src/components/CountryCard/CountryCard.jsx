@@ -6,7 +6,7 @@ const CountryCard = ({ countryInfo, fetching }) => {
   return (
     <Link to={`/countries-app/country/${countryInfo.alpha3Code}`}>
       <div
-        className="country-card background-component text"
+        className="country-card background-component text hover-shadow"
         style={{ opacity: fetching ? '.1' : '1' }}
       >
         <div className="country-card__image">

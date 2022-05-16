@@ -58,6 +58,11 @@
   z-index: 1;
 }
 
+.list-item-wrapper {
+  overflow: hidden;
+  height: 100%;
+}
+
 @media (max-width: 768px) {
   .region-select {
     width: 40%;

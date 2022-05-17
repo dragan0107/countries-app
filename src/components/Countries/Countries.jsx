@@ -79,7 +79,7 @@ const Countries = () => {
 
   return (
     <div className="countries-wrapper background">
-      <div className="countries">
+      <section className="countries">
         <div className="countries__filters">
           <SearchBar debouncedSearch={debouncedSearch} />
           <RegionSelect
@@ -100,7 +100,7 @@ const Countries = () => {
               </Suspense>
             ))}
         </div>
-      </div>
+      </section>
     </div>
   );
 };

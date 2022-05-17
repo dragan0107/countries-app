@@ -97,13 +97,13 @@
     height: 100%;
   }
   .country-info {
-    padding: 3em 2em;
     &__about {
       gap: 4em;
       flex-direction: column;
 
       &__flag {
         width: 100%;
+        text-align: center;
         img {
           width: 100%;
           height: 100%;
@@ -144,5 +144,11 @@
     margin-bottom: 1em;
     font-size: 1.3em;
     font-weight: 600;
+  }
+}
+
+@media (max-width: $mobile) {
+  .country-info {
+    padding: 3em 2em;
   }
 }

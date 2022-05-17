@@ -49,7 +49,7 @@ const RegionSelect = ({ setRegion }) => {
         <ul
           className="region-select__menu__list background-component text"
           style={{
-            height: showRegionList ? '13em' : '0',
+            height: showRegionList ? '12.9em' : '0',
             visibility: showRegionList ? 'visible' : 'hidden',
           }}
         >

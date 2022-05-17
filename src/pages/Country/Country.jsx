@@ -103,21 +103,25 @@ const Country = () => {
                         </li>
                       </ul>
                     </div>
-                    {borders.length > 0 && (
-                      <div className="country-borders">
-                        <span className="country-borders__title">
-                          Border Countries:
-                        </span>
-                        {borders.map((bor, idx) => (
+                    <div className="country-borders">
+                      <span className="country-borders__title">
+                        Border Countries:
+                      </span>
+                      {borders.length > 0 ? (
+                        borders.map((bor, idx) => (
                           <Suspense fallback={<CircleSpinner />} key={idx}>
                             <BorderCountry
                               name={bor.name}
                               code={bor.alpha3Code}
                             />
                           </Suspense>
-                        ))}
-                      </div>
-                    )}
+                        ))
+                      ) : (
+                        <Suspense fallback={<CircleSpinner />} key="0">
+                          <BorderCountry noBorder name="No border countries." />
+                        </Suspense>
+                      )}
+                    </div>
                   </div>
                 </div>
               </>

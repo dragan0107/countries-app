@@ -5,13 +5,13 @@ import { ThemeContext } from '../../utils/ThemeContext';
 
 import './BorderCountry.scss';
 
-const BorderCountry = ({ name, code }) => {
+const BorderCountry = ({ name, code, noBorder }) => {
   const { theme } = useContext(ThemeContext);
 
   return (
     <div className="border-wrapper ">
       <Link
-        to={`/countries-app/country/${code}`}
+        to={!noBorder ? `/countries-app/country/${code}` : ''}
         style={{ textDecoration: 'none' }}
       >
         <div

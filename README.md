@@ -8,7 +8,7 @@
 
 ## Technologies used:
 
-> ### The app is fully made in **`React`** and **`SASS`**, and no external packages were used apart from **`axios`** for data fetching.
+> ### The app is fully made in **`React`** with **`TypeScript`** and **`SASS`**, and no external packages were used apart from **`axios`** for data fetching.
 
 ## Functionalities:
 

@@ -4,19 +4,30 @@ import SingleRegion from '../SingleRegion/SingleRegion';
 
 import './RegionSelect.scss';
 
-const RegionSelect = ({ setRegion }) => {
+interface RegionSelectProps {
+  setRegion: (val: string) => void;
+}
+
+const RegionSelect: React.FC<RegionSelectProps> = ({ setRegion }) => {
   const [showRegionList, setShowRegionList] = useState(false);
   const [currentRegion, setCurrentRegion] = useState('All');
 
-  const regions = ['all', 'africa', 'americas', 'asia', 'europe', 'oceania'];
-  const regionRef = useRef();
+  const regions: string[] = [
+    'all',
+    'africa',
+    'americas',
+    'asia',
+    'europe',
+    'oceania',
+  ];
+  const regionRef = useRef<any>();
 
-  const handleChange = (val, valUppercase) => {
+  const handleChange = (val: string, valUppercase: string) => {
     setRegion(val);
     setCurrentRegion(valUppercase);
   };
   useEffect(() => {
-    const checkIfClickedOut = (e) => {
+    const checkIfClickedOut = (e: any) => {
       if (
         showRegionList &&
         regionRef.current &&
@@ -55,12 +66,7 @@ const RegionSelect = ({ setRegion }) => {
         >
           <div className="list-item-wrapper">
             {regions.map((reg) => (
-              <SingleRegion
-                key={reg}
-                reg={reg}
-                handleChange={handleChange}
-                setCurrentRegion={setCurrentRegion}
-              />
+              <SingleRegion key={reg} reg={reg} handleChange={handleChange} />
             ))}
           </div>
         </ul>

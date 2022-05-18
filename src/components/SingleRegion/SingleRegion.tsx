@@ -4,7 +4,8 @@ interface RegionProps {
 }
 
 const SingleRegion: React.FC<RegionProps> = ({ handleChange, reg }) => {
-  let regUppercase = reg[0].toUpperCase() + reg.slice(1);
+  let regUppercase: string = reg[0].toUpperCase() + reg.slice(1);
+
   return (
     <li
       className="region-select__menu__list__item"

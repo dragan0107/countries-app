@@ -1,6 +1,10 @@
 import './SearchBar.scss';
 
-const SearchBar = ({ debouncedSearch }) => {
+type SearchBarProps = {
+  debouncedSearch: (e: {}) => void;
+};
+
+const SearchBar: React.FC<SearchBarProps> = ({ debouncedSearch }) => {
   return (
     <div className="search-bar background-component text">
       <i className="fa-solid fa-magnifying-glass text"></i>

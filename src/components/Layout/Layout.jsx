@@ -2,7 +2,7 @@ import { useContext } from 'react';
 
 import { ThemeContext } from '../../utils/ThemeContext';
 
-import Header from '../Header/Header';
+import Header from '../Header/Header.jsx';
 
 import './Layout.scss';
 

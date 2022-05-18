@@ -2,7 +2,27 @@ import { Link } from 'react-router-dom';
 
 import './CountryCard.scss';
 
-const CountryCard = ({ countryInfo, fetching }) => {
+interface Flags {
+  svg: string;
+  png: string;
+}
+
+interface CountryInfo {
+  name: string;
+  population: number;
+  region: string;
+  flags: Flags;
+  independent: boolean;
+  capital: string;
+  alpha3Code: string;
+}
+
+interface CountryCardProps {
+  countryInfo: CountryInfo;
+  fetching: boolean;
+}
+
+const CountryCard: React.FC<CountryCardProps> = ({ countryInfo, fetching }) => {
   return (
     <Link to={`/countries-app/country/${countryInfo.alpha3Code}`}>
       <div
@@ -17,7 +37,7 @@ const CountryCard = ({ countryInfo, fetching }) => {
           <ul>
             <li>
               <span>Population: </span>
-              {parseInt(countryInfo.population).toLocaleString()}
+              {parseInt(String(countryInfo.population)).toLocaleString()}
             </li>
             <li>
               <span>Region: </span>

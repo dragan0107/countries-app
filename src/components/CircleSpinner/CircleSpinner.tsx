@@ -1,6 +1,6 @@
 import './CircleSpinner.scss';
 
-const CircleSpinner = () => {
+const CircleSpinner: React.FC = () => {
   return (
     <div className="circle-spinner">
       <div className="lds-ring">

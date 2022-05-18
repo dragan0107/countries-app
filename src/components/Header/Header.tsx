@@ -4,15 +4,15 @@ import { ThemeContext } from '../../utils/ThemeContext';
 
 import './Header.scss';
 
-const Header = () => {
-  const { theme, setTheme } = useContext(ThemeContext);
+const Header: React.FC = () => {
+  const theme = useContext(ThemeContext);
 
   const themeHandler = () => {
-    if (theme === 'light') {
-      setTheme('');
+    if (theme?.theme === 'light') {
+      theme?.setTheme('');
       localStorage.setItem('theme', '');
     } else {
-      setTheme('light');
+      theme?.setTheme('light');
       localStorage.setItem('theme', 'light');
     }
   };
@@ -21,8 +21,8 @@ const Header = () => {
       <div className="header">
         <h1 className="header__title">Where in the world?</h1>
         <div className="header__theme-picker" onClick={themeHandler}>
-          <i className={`fa-solid ${theme ? 'fa-sun' : 'fa-moon'}`}></i>
-          <span>{!theme ? 'Dark Mode' : 'Light Mode'}</span>
+          <i className={`fa-solid ${theme?.theme ? 'fa-sun' : 'fa-moon'}`}></i>
+          <span>{!theme?.theme ? 'Dark Mode' : 'Light Mode'}</span>
         </div>
       </div>
     </header>

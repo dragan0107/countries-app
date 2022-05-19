@@ -2,7 +2,7 @@ import { FC } from 'react';
 import './SearchBar.scss';
 
 type SearchBarProps = {
-  debouncedSearch: (e: {}) => void;
+  debouncedSearch: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const SearchBar: FC<SearchBarProps> = ({ debouncedSearch }) => {

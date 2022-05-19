@@ -8,7 +8,7 @@ export interface Flags {
   png: string;
 }
 
-interface CountryInfo {
+export interface CountryInfo {
   name: string;
   population: number;
   region: string;

@@ -1,4 +1,11 @@
-import { lazy, Suspense, useCallback, useEffect, useState } from 'react';
+import React, {
+  FC,
+  lazy,
+  Suspense,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 
 import { debounce } from '../../utils/Debounce';
 import { getCountries } from '../../api/APICalls';
@@ -8,26 +15,27 @@ import SearchBar from '../SearchBar/SearchBar';
 import CircleSpinner from '../CircleSpinner/CircleSpinner';
 
 import './Countries.scss';
+import { CountryInfo } from '../CountryCard/CountryCard';
 
 const CountryCard = lazy(() => import('../CountryCard/CountryCard'));
 
-const Countries = () => {
-  const [countries, setCountries] = useState([]);
-  const [countriesOriginal, setCountriesOriginal] = useState([]);
+const Countries: FC = () => {
+  const [countries, setCountries] = useState<CountryInfo[]>([]);
+  const [countriesOriginal, setCountriesOriginal] = useState<CountryInfo[]>([]);
   const [fetching, setFetching] = useState(false);
   const [region, setRegion] = useState('all');
   const [searchedCountry, setSearchedCountry] = useState('');
   const [notification, setNotification] = useState(false);
 
-  const handleSearchChange = (e) => {
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchedCountry(e.target.value);
   };
 
   const debouncedSearch = debounce(handleSearchChange, 500);
 
   const filterHelper = useCallback(
-    (arr) => {
-      let filtered = [];
+    (arr: CountryInfo[]) => {
+      let filtered: CountryInfo[] = [];
       arr.forEach((cou) => {
         if (
           cou.name.toLowerCase().includes(searchedCountry.toLowerCase()) &&
@@ -57,7 +65,7 @@ const Countries = () => {
     ) {
       (async () => {
         setFetching(true);
-        const res = await getCountries(region, searchedCountry);
+        const res: any = await getCountries(region, searchedCountry);
         if (res.data) {
           if (searchedCountry && region !== 'all') {
             const filtered = filterHelper(res.data);
@@ -82,10 +90,7 @@ const Countries = () => {
       <section className="countries">
         <div className="countries__filters">
           <SearchBar debouncedSearch={debouncedSearch} />
-          <RegionSelect
-            setRegion={setRegion}
-            setSearchedCountry={setSearchedCountry}
-          />
+          <RegionSelect setRegion={setRegion} />
         </div>
         <div className="countries__card-container">
           {notification && !fetching && (

@@ -1,8 +1,9 @@
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
 import './CountryCard.scss';
 
-interface Flags {
+export interface Flags {
   svg: string;
   png: string;
 }
@@ -22,7 +23,7 @@ interface CountryCardProps {
   fetching: boolean;
 }
 
-const CountryCard: React.FC<CountryCardProps> = ({ countryInfo, fetching }) => {
+const CountryCard: FC<CountryCardProps> = ({ countryInfo, fetching }) => {
   return (
     <Link to={`/countries-app/country/${countryInfo.alpha3Code}`}>
       <div

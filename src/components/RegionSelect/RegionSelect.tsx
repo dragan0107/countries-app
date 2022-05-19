@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 
 import SingleRegion from '../SingleRegion/SingleRegion';
 
@@ -8,7 +8,7 @@ interface RegionSelectProps {
   setRegion: (val: string) => void;
 }
 
-const RegionSelect: React.FC<RegionSelectProps> = ({ setRegion }) => {
+const RegionSelect: FC<RegionSelectProps> = ({ setRegion }) => {
   const [showRegionList, setShowRegionList] = useState(false);
   const [currentRegion, setCurrentRegion] = useState('All');
 

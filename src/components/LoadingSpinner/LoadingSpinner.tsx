@@ -1,6 +1,7 @@
+import { FC } from 'react';
 import './LoadingSpinner.scss';
 
-const LoadingSpinner: React.FC = () => {
+const LoadingSpinner: FC = () => {
   return (
     <div className="ellipsis-wrapper">
       <div className="lds-ellipsis">

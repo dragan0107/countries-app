@@ -1,6 +1,7 @@
+import { FC } from 'react';
 import './CircleSpinner.scss';
 
-const CircleSpinner: React.FC = () => {
+const CircleSpinner: FC = () => {
   return (
     <div className="circle-spinner">
       <div className="lds-ring">

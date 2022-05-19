@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://restcountries.com/v2';
-const FIELDS = '?fields=name,capital,region,population,flags,alpha3Code';
+const BASE_URL: string = 'https://restcountries.com/v2';
+const FIELDS: string =
+  '?fields=name,capital,region,population,flags,alpha3Code';
 
-export const getCountries = async (reg, searchedCountry) => {
+export const getCountries = async (reg: string, searchedCountry: string) => {
   try {
     const res = await axios.get(
       searchedCountry && reg === 'all'
@@ -18,7 +19,10 @@ export const getCountries = async (reg, searchedCountry) => {
   }
 };
 
-export const getCountryInfo = async (countryCode, getOnlyName) => {
+export const getCountryInfo = async (
+  countryCode: string | undefined,
+  getOnlyName?: boolean
+) => {
   try {
     const res = await axios.get(
       getOnlyName

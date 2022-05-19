@@ -1,10 +1,10 @@
-import { useContext } from 'react';
+import { FC, useContext } from 'react';
 
 import { ThemeContext } from '../../utils/ThemeContext';
 
 import './Header.scss';
 
-const Header: React.FC = () => {
+const Header: FC = () => {
   const theme = useContext(ThemeContext);
 
   const themeHandler = () => {

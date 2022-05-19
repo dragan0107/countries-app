@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { FC, useContext } from 'react';
 
 import { ThemeContext } from '../../utils/ThemeContext';
 
@@ -10,7 +10,7 @@ interface LayoutProps {
   children?: React.ReactNode;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: FC<LayoutProps> = ({ children }) => {
   const theme = useContext(ThemeContext);
   return (
     <div className={`layout ${theme?.theme}`}>

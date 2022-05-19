@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { FC, useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import { ThemeContext } from '../../utils/ThemeContext';
@@ -7,15 +7,11 @@ import './BorderCountry.scss';
 
 interface BorderCountryProps {
   name: string;
-  code: string;
-  noBorder: boolean;
+  code?: string;
+  noBorder?: boolean;
 }
 
-const BorderCountry: React.FC<BorderCountryProps> = ({
-  name,
-  code,
-  noBorder,
-}) => {
+const BorderCountry: FC<BorderCountryProps> = ({ name, code, noBorder }) => {
   const theme = useContext(ThemeContext);
 
   return (

@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React, { FC, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { ThemeContext } from '../../utils/ThemeContext';
 
-const BackButton: React.FC = () => {
+const BackButton: FC = () => {
   const theme = useContext(ThemeContext);
 
   const navigate = useNavigate();

@@ -5,8 +5,18 @@ import { ThemeContext } from '../../utils/ThemeContext';
 
 import './BorderCountry.scss';
 
-const BorderCountry = ({ name, code, noBorder }) => {
-  const { theme } = useContext(ThemeContext);
+interface BorderCountryProps {
+  name: string;
+  code: string;
+  noBorder: boolean;
+}
+
+const BorderCountry: React.FC<BorderCountryProps> = ({
+  name,
+  code,
+  noBorder,
+}) => {
+  const theme = useContext(ThemeContext);
 
   return (
     <div className="border-wrapper ">
@@ -16,7 +26,7 @@ const BorderCountry = ({ name, code, noBorder }) => {
       >
         <div
           className={`border-country ${
-            theme === 'light' ? ' background-component' : ''
+            theme?.theme === 'light' ? ' background-component' : ''
           }`}
         >
           <span className="border-country__name text">{name}</span>

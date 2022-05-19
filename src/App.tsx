@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import Country from './pages/Country/Country';
@@ -6,7 +7,7 @@ import Layout from './components/Layout/Layout';
 
 import { ThemeProvider } from './utils/ThemeContext';
 
-const App = () => {
+const App: FC = () => {
   return (
     <ThemeProvider>
       <Layout>

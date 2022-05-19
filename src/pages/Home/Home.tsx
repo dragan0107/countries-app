@@ -1,6 +1,7 @@
+import { FC } from 'react';
 import Countries from '../../components/Countries/Countries';
 
-const Home = () => {
+const Home: FC = () => {
   return <Countries />;
 };
 

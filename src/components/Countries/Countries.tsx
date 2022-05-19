@@ -9,13 +9,13 @@ import React, {
 
 import { debounce } from '../../utils/Debounce';
 import { getCountries } from '../../api/APICalls';
+import { CountryInfo } from '../CountryCard/CountryCard';
 
 import RegionSelect from '../RegionSelect/RegionSelect';
 import SearchBar from '../SearchBar/SearchBar';
 import CircleSpinner from '../CircleSpinner/CircleSpinner';
 
 import './Countries.scss';
-import { CountryInfo } from '../CountryCard/CountryCard';
 
 const CountryCard = lazy(() => import('../CountryCard/CountryCard'));
 

@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, FC, useState } from 'react';
 
 interface Theme {
   theme: string | null;
@@ -11,7 +11,7 @@ interface ProviderProps {
 
 export const ThemeContext = createContext<Theme | null>(null);
 
-export const ThemeProvider: React.FC<ProviderProps> = ({ children }) => {
+export const ThemeProvider: FC<ProviderProps> = ({ children }) => {
   const [theme, setTheme] = useState(localStorage.getItem('theme'));
 
   return (

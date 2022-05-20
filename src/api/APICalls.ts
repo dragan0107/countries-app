@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const BASE_URL: string = 'https://restcountries.com/v2';
 const FIELDS: string =
-  '?fields=name,capital,region,population,flags,alpha3Code';
+  '?fields=name,capital,region,population,flags,alpha3Code,';
 
 export const getCountries = async (reg: string, searchedCountry: string) => {
   try {
@@ -29,7 +29,9 @@ export const getCountryInfo = async (
         ? `${BASE_URL}/alpha/${countryCode}?fields=name,alpha3Code`
         : `${BASE_URL}/alpha/${countryCode}${FIELDS},nativeName,topLevelDomain,currencies,languages,subregion,flag,borders,flags`
     );
-    return res.data;
+    if (res.data !== undefined) {
+      return res.data;
+    }
   } catch (error) {
     return error;
   }

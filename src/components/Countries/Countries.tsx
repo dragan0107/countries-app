@@ -9,7 +9,7 @@ import React, {
 
 import { debounce } from '../../utils/Debounce';
 import { getCountries } from '../../api/APICalls';
-import { CountryInfo } from '../CountryCard/CountryCard';
+import { CountryInfoCard } from '../../types/types';
 
 import RegionSelect from '../RegionSelect/RegionSelect';
 import SearchBar from '../SearchBar/SearchBar';
@@ -20,8 +20,10 @@ import './Countries.scss';
 const CountryCard = lazy(() => import('../CountryCard/CountryCard'));
 
 const Countries: FC = () => {
-  const [countries, setCountries] = useState<CountryInfo[]>([]);
-  const [countriesOriginal, setCountriesOriginal] = useState<CountryInfo[]>([]);
+  const [countries, setCountries] = useState<CountryInfoCard[]>([]);
+  const [countriesOriginal, setCountriesOriginal] = useState<CountryInfoCard[]>(
+    []
+  );
   const [fetching, setFetching] = useState(false);
   const [region, setRegion] = useState('all');
   const [searchedCountry, setSearchedCountry] = useState('');
@@ -34,8 +36,8 @@ const Countries: FC = () => {
   const debouncedSearch = debounce(handleSearchChange, 500);
 
   const filterHelper = useCallback(
-    (arr: CountryInfo[]) => {
-      let filtered: CountryInfo[] = [];
+    (arr: CountryInfoCard[]) => {
+      let filtered: CountryInfoCard[] = [];
       arr.forEach((cou) => {
         if (
           cou.name.toLowerCase().includes(searchedCountry.toLowerCase()) &&
@@ -66,6 +68,7 @@ const Countries: FC = () => {
       (async () => {
         setFetching(true);
         const res: any = await getCountries(region, searchedCountry);
+
         if (res.data) {
           if (searchedCountry && region !== 'all') {
             const filtered = filterHelper(res.data);

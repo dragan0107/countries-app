@@ -1,25 +1,11 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
+import { CountryInfoCard } from '../../types/types';
 
 import './CountryCard.scss';
 
-export interface Flags {
-  svg: string;
-  png: string;
-}
-
-export interface CountryInfo {
-  name: string;
-  population: number;
-  region: string;
-  flags: Flags;
-  independent: boolean;
-  capital: string;
-  alpha3Code: string;
-}
-
 interface CountryCardProps {
-  countryInfo: CountryInfo;
+  countryInfo: CountryInfoCard;
   fetching: boolean;
 }
 

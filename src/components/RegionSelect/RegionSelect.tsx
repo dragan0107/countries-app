@@ -20,18 +20,18 @@ const RegionSelect: FC<RegionSelectProps> = ({ setRegion }) => {
     'europe',
     'oceania',
   ];
-  const regionRef = useRef<any>();
+  const regionRef = useRef<HTMLDivElement>(null);
 
   const handleChange = (val: string, valUppercase: string) => {
     setRegion(val);
     setCurrentRegion(valUppercase);
   };
   useEffect(() => {
-    const checkIfClickedOut = (e: any) => {
+    const checkIfClickedOut = (e: MouseEvent | TouchEvent) => {
       if (
         showRegionList &&
         regionRef.current &&
-        !regionRef.current.contains(e.target)
+        !regionRef.current.contains(e.target as Node)
       ) {
         setShowRegionList(false);
       }

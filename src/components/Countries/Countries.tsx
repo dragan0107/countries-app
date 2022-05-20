@@ -67,16 +67,18 @@ const Countries: FC = () => {
     ) {
       (async () => {
         setFetching(true);
-        const res: any = await getCountries(region, searchedCountry);
-
-        if (res.data) {
+        const res: CountryInfoCard[] = await getCountries(
+          region,
+          searchedCountry
+        );
+        if (res) {
           if (searchedCountry && region !== 'all') {
-            const filtered = filterHelper(res.data);
+            const filtered = filterHelper(res);
             setCountries(filtered);
           } else {
-            setCountries(res.data);
+            setCountries(res);
           }
-          setCountriesOriginal(res.data);
+          setCountriesOriginal(res);
           setNotification(false);
         } else {
           setCountries([]);
@@ -102,7 +104,7 @@ const Countries: FC = () => {
             </span>
           )}
           {!fetching &&
-            countries?.map((cou) => (
+            countries.map((cou) => (
               <Suspense fallback={<CircleSpinner />} key={cou.alpha3Code}>
                 <CountryCard countryInfo={cou} fetching={fetching} />
               </Suspense>

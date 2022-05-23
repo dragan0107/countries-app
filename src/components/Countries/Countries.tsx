@@ -71,7 +71,7 @@ const Countries: FC = () => {
           region,
           searchedCountry
         );
-        if (res) {
+        if (res.length > 0) {
           if (searchedCountry && region !== 'all') {
             const filtered = filterHelper(res);
             setCountries(filtered);
@@ -100,7 +100,7 @@ const Countries: FC = () => {
         <div className="countries__card-container">
           {notification && !fetching && (
             <span className="countries__card-container__notification text">
-              No countries found.
+              No results found.
             </span>
           )}
           {!fetching &&

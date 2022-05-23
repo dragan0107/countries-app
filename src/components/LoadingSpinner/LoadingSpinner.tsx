@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import './LoadingSpinner.scss';
 
 const LoadingSpinner: FC = () => {

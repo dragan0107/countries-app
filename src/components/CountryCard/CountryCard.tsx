@@ -13,7 +13,7 @@ interface CountryCardProps {
 const CountryCard: FC<CountryCardProps> = ({ countryInfo, fetching }) => {
   return (
     <Link to={`/countries-app/country/${countryInfo.alpha3Code}`}>
-      <div
+      <article
         className="country-card background-component text hover-shadow"
         style={{ opacity: fetching ? '.1' : '1' }}
       >
@@ -37,7 +37,7 @@ const CountryCard: FC<CountryCardProps> = ({ countryInfo, fetching }) => {
             </li>
           </ul>
         </div>
-      </div>
+      </article>
     </Link>
   );
 };

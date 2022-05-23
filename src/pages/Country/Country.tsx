@@ -48,7 +48,7 @@ const Country: FC = () => {
   useEffect(() => {
     (async () => {
       setFetching(true);
-      const res = await getCountryInfo(countryCode);
+      const res: CountryInfo = await getCountryInfo(countryCode);
       setCountryData(res);
       setFetching(false);
     })();
@@ -59,7 +59,7 @@ const Country: FC = () => {
     countryData?.borders?.forEach((cou: string) => {
       (async () => {
         const getOnlyName = true;
-        const res = await getCountryInfo(cou, getOnlyName);
+        const res: BorderInfo = await getCountryInfo(cou, getOnlyName);
         countries.push(res);
         setBorders([...countries]);
       })();

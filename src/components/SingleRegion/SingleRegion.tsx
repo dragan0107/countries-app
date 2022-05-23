@@ -1,11 +1,11 @@
 import { FC } from 'react';
 
-interface RegionProps {
+interface SingleRegionProps {
   reg: string;
   handleChange: (reg: string, regUppercase: string) => void;
 }
 
-const SingleRegion: FC<RegionProps> = ({ handleChange, reg }) => {
+const SingleRegion: FC<SingleRegionProps> = ({ handleChange, reg }) => {
   let regUppercase: string = reg[0].toUpperCase() + reg.slice(1);
 
   return (

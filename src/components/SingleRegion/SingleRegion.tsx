@@ -6,7 +6,7 @@ interface SingleRegionProps {
 }
 
 const SingleRegion: FC<SingleRegionProps> = ({ handleChange, reg }) => {
-  let regUppercase: string = reg[0].toUpperCase() + reg.slice(1);
+  const regUppercase: string = reg[0].toUpperCase() + reg.slice(1);
 
   return (
     <li

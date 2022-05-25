@@ -69,7 +69,7 @@ const Country: FC = () => {
   return (
     <div className="country-page">
       <div className="country-info-wrapper background">
-        <div className="country-info">
+        <section className="country-info">
           <BackButton />
           <div className="country-info__about ">
             {fetching ? (
@@ -162,7 +162,7 @@ const Country: FC = () => {
               </>
             )}
           </div>
-        </div>
+        </section>
       </div>
     </div>
   );

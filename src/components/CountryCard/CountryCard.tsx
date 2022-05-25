@@ -7,16 +7,12 @@ import './CountryCard.scss';
 
 interface CountryCardProps {
   countryInfo: CountryInfoCard;
-  fetching: boolean;
 }
 
-const CountryCard: FC<CountryCardProps> = ({ countryInfo, fetching }) => {
+const CountryCard: FC<CountryCardProps> = ({ countryInfo }) => {
   return (
     <Link to={`/countries-app/country/${countryInfo.alpha3Code}`}>
-      <article
-        className="country-card background-component text hover-shadow"
-        style={{ opacity: fetching ? '.1' : '1' }}
-      >
+      <article className="country-card background-component text hover-shadow">
         <div className="country-card__image">
           <img src={countryInfo.flags.png} alt="" />
         </div>

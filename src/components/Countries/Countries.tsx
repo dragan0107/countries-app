@@ -106,7 +106,7 @@ const Countries: FC = () => {
           {!fetching &&
             countries.map((cou) => (
               <Suspense fallback={<CircleSpinner />} key={cou.alpha3Code}>
-                <CountryCard countryInfo={cou} fetching={fetching} />
+                <CountryCard countryInfo={cou} />
               </Suspense>
             ))}
         </div>

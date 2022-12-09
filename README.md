@@ -1,6 +1,6 @@
 # **Countries app**
 
-## [Click here for demo.](https://drip016.github.io/countries-app)
+## [Click here for demo.](https://dragan0107.github.io/countries-app)
 
 > ### In this project, I was provided with a design preview, style guide of the app and my task was to recreate the Front-end from scratch. The app communicates with the [REST Countries API v2.](https://restcountries.com/) to fetch the details about countries. Initially, the project was done in plain **`React`**, but then I completely updated all the components in **`TypeScript`** and I tried to use it as much as I could. It was a good opportunity to learn and use **`TypeScript`** for the first time, and see the benefits it offers.
 
